@@ -24,7 +24,7 @@ namespace ocl
 	{
 		using option_error = std::runtime_error;
 
-		inline void throw_option_invalid_type_error(const boost::string_view& loc = BOOST_CURRENT_LOCATION.to_string())
+		inline void throw_option_invalid_type_error(const boost::source_location& loc = BOOST_CURRENT_LOCATION)
 		{
 			throw option_error(loc.to_string());
 		}
@@ -148,7 +148,7 @@ namespace ocl
 	{
 		return return_type::invalid;
 	}
-	
+
 } // namespace ocl
 
 #endif /* ifndef __OCL_CORE_OPTION */

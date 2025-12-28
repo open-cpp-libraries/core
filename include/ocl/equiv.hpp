@@ -45,7 +45,7 @@ namespace ocl
 	{
 		static constexpr auto value = true;
 	};
-	
+
 } // namespace ocl
 
 #endif

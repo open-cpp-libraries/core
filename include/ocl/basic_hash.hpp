@@ -39,7 +39,7 @@ namespace ocl
 			return false;
 		}
 	};
-	
+
 } // namespace ocl
 
 #endif

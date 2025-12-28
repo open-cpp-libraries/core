@@ -26,7 +26,7 @@ namespace ocl
 	{
 		return shared_ptr<Type>{object, boost::null_deleter{}};
 	}
-	
+
 } // namespace ocl
 
 #endif // ifndef __OCL_SMART_PTR

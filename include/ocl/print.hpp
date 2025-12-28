@@ -44,7 +44,7 @@ namespace ocl::io
 
 		using io_error = std::runtime_error;
 
-		inline void throw_option_invalid_type_error(const boost::string_view& loc = BOOST_CURRENT_LOCATION.to_string())
+		inline void throw_option_invalid_type_error(const boost::source_location& loc = BOOST_CURRENT_LOCATION)
 		{
 			throw io_error(loc.to_string());
 		}
@@ -76,7 +76,7 @@ namespace ocl::io
 		print(fmt...);
 		lf();
 	}
-	
+
 } // namespace ocl::io
 
 #endif // ifndef __OCL_CORE_PRINT

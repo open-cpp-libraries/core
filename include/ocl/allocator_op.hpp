@@ -11,13 +11,15 @@
 
 namespace ocl
 {
-	
+
 	/// @note these are guidelines on allocating a resource
 	template <typename type>
 	struct global_new_op final
 	{
 		using pointer_type		 = type*;
 		using const_pointer_type = const type*;
+		using pointer			 = type*;
+		using const_pointer		 = const type*;
 
 		auto alloc() -> pointer_type
 		{
