@@ -13,6 +13,7 @@
 
 namespace ocl
 {
+
 	template <class Type, class Del = std::default_delete<Type>>
 	using unique_ptr = std::unique_ptr<Type, Del>;
 
@@ -25,6 +26,7 @@ namespace ocl
 	{
 		return shared_ptr<Type>{object, boost::null_deleter{}};
 	}
+	
 } // namespace ocl
 
 #endif // ifndef __OCL_SMART_PTR

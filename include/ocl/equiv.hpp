@@ -11,6 +11,7 @@
 /// @brief OCL equivalence namespace.
 namespace ocl
 {
+
 	template <typename T>
 	struct is_real final
 	{
@@ -44,6 +45,7 @@ namespace ocl
 	{
 		static constexpr auto value = true;
 	};
+	
 } // namespace ocl
 
 #endif

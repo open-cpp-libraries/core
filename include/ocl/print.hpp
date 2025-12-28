@@ -11,6 +11,7 @@
 
 namespace ocl::io
 {
+
 	template <typename T>
 	inline void print(T fmt) noexcept
 	{
@@ -75,6 +76,7 @@ namespace ocl::io
 		print(fmt...);
 		lf();
 	}
+	
 } // namespace ocl::io
 
 #endif // ifndef __OCL_CORE_PRINT

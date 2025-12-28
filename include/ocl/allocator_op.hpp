@@ -11,6 +11,7 @@
 
 namespace ocl
 {
+	
 	/// @note these are guidelines on allocating a resource
 	template <typename type>
 	struct global_new_op final
@@ -74,6 +75,7 @@ namespace ocl
 
 	template <typename type>
 	using allocator = allocator_op<type, global_new_op<type>, global_array_delete_op<type>>;
+
 } // namespace ocl
 
 #endif // ifndef __OCL_CORE_ALLOC

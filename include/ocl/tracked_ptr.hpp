@@ -13,6 +13,7 @@
 
 namespace ocl
 {
+
 	template <typename Type>
 	class tracked_allocator
 	{
@@ -230,6 +231,7 @@ namespace ocl
 			detail::throw_tracked_error();
 		}
 	}
+	
 } // namespace ocl
 
 #endif // ifndef __OCL_TRACKED_PTR

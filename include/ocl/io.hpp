@@ -21,6 +21,7 @@
 
 namespace ocl::io
 {
+
 	class void_stream final
 	{
 		void_stream()  = default;
@@ -32,6 +33,7 @@ namespace ocl::io
 
 	inline void_stream void_cout;
 	inline void_stream void_cin;
+	
 } // namespace ocl::io
 
 #endif

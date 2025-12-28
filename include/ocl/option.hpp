@@ -11,6 +11,7 @@
 
 namespace ocl
 {
+
 	enum struct return_type : int
 	{
 		invalid = 0,
@@ -147,6 +148,7 @@ namespace ocl
 	{
 		return return_type::invalid;
 	}
+	
 } // namespace ocl
 
 #endif /* ifndef __OCL_CORE_OPTION */

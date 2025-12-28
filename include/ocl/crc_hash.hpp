@@ -16,6 +16,7 @@
 
 namespace ocl
 {
+
 	/// @brief Crc32 implementation in C++
 	/// @author Amlal El Mahrouss (amlal@nekernel.org)
 
@@ -88,6 +89,7 @@ namespace ocl
 
 	template <typename K, typename V>
 	using hash_map = std::unordered_map<K, V, std::hash<ocl::crc_hash_trait>>;
+
 } // namespace ocl
 
 inline void

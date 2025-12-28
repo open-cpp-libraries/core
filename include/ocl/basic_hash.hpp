@@ -11,6 +11,7 @@
 /// @brief OCL equivalence namespace.
 namespace ocl
 {
+
 	/// \brief Hash helper.
 	template <class T>
 	struct basic_hash
@@ -38,6 +39,7 @@ namespace ocl
 			return false;
 		}
 	};
+	
 } // namespace ocl
 
 #endif
