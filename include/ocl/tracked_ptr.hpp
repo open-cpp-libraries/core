@@ -6,7 +6,6 @@
 #ifndef __OCL_TRACKED_PTR
 #define __OCL_TRACKED_PTR
 
-#include <exception>
 #include <ocl/detail/config.hpp>
 #include <atomic>
 #include <stdexcept>
