@@ -9,12 +9,16 @@
 
 int main(int argc, char** argv)
 {
-    if (argc != 2) return 1;
+   	if (argc != 2)
+	{
+		ocl::io::print("Hello, World!\n"_crc32);
+		return EXIT_SUCCESS;
+	}
 
-    std::hash<ocl::crc_hash_trait> hash{};
+    	std::hash<ocl::crc_hash_trait> hash{};
 
-    ocl::io::enable_stdio_sync(false);
+    	ocl::io::enable_stdio_sync(false);
 	ocl::io::print(hash.operator()<true, false>(argv[1]));
 
-	return 0;
+	return EXIT_SUCCESS;
 }

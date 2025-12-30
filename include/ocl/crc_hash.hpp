@@ -92,10 +92,10 @@ namespace ocl
 
 } // namespace ocl
 
-inline void
-operator""_crc(const char* in, std::size_t len) noexcept
+inline std::uint32_t
+operator""_crc32(const char* in, std::size_t len) noexcept
 {
-	ocl::crc_hash_trait::crc<std::uint32_t>(reinterpret_cast<const char*>(in), strlen(in));
+	return ocl::crc_hash_trait::crc<std::uint32_t>(static_cast<const char*>(in), strlen(in));
 }
 
 namespace std
