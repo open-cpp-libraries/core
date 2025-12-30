@@ -13,7 +13,7 @@ int main()
 	auto				foo = int_alloc.construct_array<1>();
 
 	*foo = 67;
-    ocl::io::print(*foo);
+	ocl::io::print(*foo);
 
 	return EXIT_SUCCESS;
 }

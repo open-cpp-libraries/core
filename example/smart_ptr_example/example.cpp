@@ -16,5 +16,5 @@ auto main(int argc, char** argv) -> int
     ocl::tracked_ptr<int> tracked = ocl::make_tracked<int>(10);
     *smart << *tracked << "\n";
     
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
