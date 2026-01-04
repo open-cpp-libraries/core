@@ -10,11 +10,11 @@
 /// \brief Smart pointer example.
 auto main(int argc, char** argv) -> int
 {
-    ocl::shared_ptr<std::ostream> smart = ocl::delete_ptr(&std::cout);
-    *smart << "hello, world\n";
+	ocl::shared_ptr<std::ostream> smart = ocl::delete_ptr(&std::cout);
+	*smart << "hello, world\n";
 
-    ocl::tracked_ptr<int> tracked = ocl::make_tracked<int>(10);
-    *smart << *tracked << "\n";
-    
-    return EXIT_SUCCESS;
+	ocl::tracked_ptr<int> tracked = ocl::make_tracked<int>(10);
+	*smart << *tracked << "\n";
+
+	return EXIT_SUCCESS;
 }

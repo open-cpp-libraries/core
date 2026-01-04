@@ -137,6 +137,8 @@ namespace ocl
 		using reference_type	   = Type&;
 		using const_reference_type = const Type&;
 		using manager_type		   = tracked_mgr<Type>;
+		using pointer			   = pointer_type;
+		using reference			   = reference_type;
 
 		void reset()
 		{
