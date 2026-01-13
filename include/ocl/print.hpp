@@ -64,10 +64,15 @@ namespace ocl::io
 	inline void lf() noexcept
 	{
 #ifdef OCL_USE_CRLF_ENDINGS
-		print("\r\n");
+		if (!is_stdio_sync)
+			print("\r\n");
 #else
-		print("\n");
+		if (!is_stdio_sync())
+			print("\n");
 #endif
+
+		if (is_stdio_sync())
+			console_io_out << std::endl;
 	}
 
 	template <typename... T>

@@ -6,6 +6,7 @@
 #ifndef __OCL_TRACKED_PTR
 #define __OCL_TRACKED_PTR
 
+#include "boost/assert/source_location.hpp"
 #include <ocl/detail/config.hpp>
 #include <atomic>
 #include <stdexcept>
@@ -31,10 +32,10 @@ namespace ocl
 		using pointer_type = Type*;
 		using type		   = Type;
 
-		template <typename... U>
-		void retain(pointer_type& ptr, U&&... args)
+		template <typename... Args>
+		void retain(pointer_type& ptr, Args&&... args)
 		{
-			ptr = new type(std::forward<U>(args)...);
+			ptr = new type(std::forward<Args>(args)...);
 
 			if (ptr)
 			{
@@ -82,21 +83,21 @@ namespace ocl
 			return allocator_;
 		}
 
-		template <typename... U>
-		pointer_type retain(U&&... args)
+		template <typename... Args>
+		pointer_type retain(Args&&... args)
 		{
 			pointer_type ptr = nullptr;
-			allocator_.retain(ptr, std::forward<U>(args)...);
+			allocator_.retain(ptr, std::forward<Args>(args)...);
 
 			return ptr;
 		}
 
-		template <typename... U>
-		[[maybe_unused]] pointer_type must_retain(U&&... args)
+		template <typename... Args>
+		[[maybe_unused]] pointer_type must_retain(Args&&... args)
 		{
 			try
 			{
-				return this->retain(std::forward<U>(args)...);
+				return this->retain(std::forward<Args>(args)...);
 			}
 			catch (...)
 			{
@@ -113,14 +114,16 @@ namespace ocl
 	template <typename Type, typename Mgr = tracked_mgr<Type>>
 	class tracked_ptr
 	{
-		Mgr m_mgr_;
+		using manager = Mgr;
+
+		manager mgr_;
 
 	public:
-		template <typename... U>
-		tracked_ptr(U&&... args)
+		template <typename... Args>
+		tracked_ptr(Args&&... args)
 			: ptr_(nullptr)
 		{
-			ptr_ = m_mgr_.retain(std::forward<U>(args)...);
+			ptr_ = mgr_.retain(std::forward<Args>(args)...);
 		}
 
 		virtual ~tracked_ptr() noexcept
@@ -136,7 +139,7 @@ namespace ocl
 		using type				   = Type;
 		using reference_type	   = Type&;
 		using const_reference_type = const Type&;
-		using manager_type		   = tracked_mgr<Type>;
+		using manager_type		   = tracked_mgr<manager>;
 		using pointer			   = pointer_type;
 		using reference			   = reference_type;
 
@@ -144,7 +147,7 @@ namespace ocl
 		{
 			if (ptr_)
 			{
-				m_mgr_.dispose(ptr_);
+				mgr_.dispose(ptr_);
 			}
 		}
 
@@ -217,7 +220,7 @@ namespace ocl
 	{
 		using tracked_error = std::runtime_error;
 
-		inline void throw_tracked_error(const boost::string_view& loc = BOOST_CURRENT_LOCATION.to_string())
+		inline void throw_tracked_error(const boost::source_location& loc = BOOST_CURRENT_LOCATION)
 		{
 			throw tracked_error(loc.to_string());
 		}

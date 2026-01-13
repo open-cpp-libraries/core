@@ -20,6 +20,9 @@ namespace ocl
 	template <class Type>
 	using shared_ptr = std::shared_ptr<Type>;
 
+	template <class Type>
+	using weak_ptr = std::weak_ptr<Type>;
+
 	/// @brief Constructs a `delete_ptr`, that is, a pointer that isn't deleted from the heap.
 	template <class Type>
 	inline auto delete_ptr(Type* object) -> shared_ptr<Type>

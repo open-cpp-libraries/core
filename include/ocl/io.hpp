@@ -17,7 +17,7 @@
 #define console_io_out ::ocl::io::void_cout
 #define console_io_in  ::ocl::io::void_cin
 
-#warning The OCL doesnt define IO streams in a freestanding host.
+#warning The OCL doesnt define IO streams in freestanding mode.
 
 namespace ocl::io
 {
