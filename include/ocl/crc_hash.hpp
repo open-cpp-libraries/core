@@ -8,9 +8,6 @@
 
 #include <ocl/detail/config.hpp>
 #include <unordered_map>
-#include <cstdint>
-#include <string>
-#include <cstddef>
 #include <concepts>
 #include <cstring>
 
@@ -95,7 +92,7 @@ namespace ocl
 inline std::uint32_t
 operator""_crc32(const char* in, std::size_t len) noexcept
 {
-	return ocl::crc_hash_trait::crc<std::uint32_t>(static_cast<const char*>(in), strlen(in));
+	return ocl::crc_hash_trait::crc<std::uint32_t>(static_cast<const char*>(in), len);
 }
 
 namespace std
