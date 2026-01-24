@@ -3,8 +3,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_CORE_ALLOCATOR_OP
-#define __OCL_CORE_ALLOCATOR_OP
+#ifndef OCL_CORE_ALLOCATOR_OP
+#define OCL_CORE_ALLOCATOR_OP
 
 #include <ocl/detail/config.hpp>
 #include <memory>
@@ -84,4 +84,4 @@ namespace ocl
 
 } // namespace ocl
 
-#endif // ifndef __OCL_CORE_ALLOCATOR_OP
+#endif // ifndef OCL_CORE_ALLOCATOR_OP

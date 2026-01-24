@@ -3,8 +3,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_CORE_CRC_HASH
-#define __OCL_CORE_CRC_HASH
+#ifndef OCL_CORE_CRC_HASH
+#define OCL_CORE_CRC_HASH
 
 #include <ocl/detail/config.hpp>
 #include <unordered_map>
@@ -137,4 +137,4 @@ namespace std
 
 } // namespace std
 
-#endif // !__OCL_CORE_CRC_HASH
+#endif // !OCL_CORE_CRC_HASH

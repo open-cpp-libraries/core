@@ -3,8 +3,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_SMART_PTR
-#define __OCL_SMART_PTR
+#ifndef OCL_SMART_PTR
+#define OCL_SMART_PTR
 
 #include <boost/core/null_deleter.hpp>
 #include <ocl/detail/config.hpp>
@@ -32,4 +32,4 @@ namespace ocl
 
 } // namespace ocl
 
-#endif // ifndef __OCL_SMART_PTR
+#endif // ifndef OCL_SMART_PTR

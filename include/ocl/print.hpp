@@ -3,8 +3,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_CORE_PRINT
-#define __OCL_CORE_PRINT
+#ifndef OCL_CORE_PRINT
+#define OCL_CORE_PRINT
 
 #include <ocl/detail/config.hpp>
 #include <ocl/io.hpp>
@@ -84,4 +84,4 @@ namespace ocl::io
 
 } // namespace ocl::io
 
-#endif // ifndef __OCL_CORE_PRINT
+#endif // ifndef OCL_CORE_PRINT

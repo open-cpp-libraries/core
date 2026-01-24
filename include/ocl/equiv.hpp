@@ -3,8 +3,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_CORE_EQUIV
-#define __OCL_CORE_EQUIV
+#ifndef OCL_CORE_EQUIV
+#define OCL_CORE_EQUIV
 
 #include <ocl/detail/config.hpp>
 

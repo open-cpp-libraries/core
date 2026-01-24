@@ -3,8 +3,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_TRACKED_PTR
-#define __OCL_TRACKED_PTR
+#ifndef OCL_TRACKED_PTR
+#define OCL_TRACKED_PTR
 
 #include "boost/assert/source_location.hpp"
 #include <ocl/detail/config.hpp>
@@ -238,4 +238,4 @@ namespace ocl
 
 } // namespace ocl
 
-#endif // ifndef __OCL_TRACKED_PTR
+#endif // ifndef OCL_TRACKED_PTR

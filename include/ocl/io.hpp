@@ -3,12 +3,12 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_CORE_IO
-#define __OCL_CORE_IO
+#ifndef OCL_CORE_IO
+#define OCL_CORE_IO
 
 #include <ocl/detail/config.hpp>
 
-#ifndef __OCL_FREESTANDING
+#ifndef OCL_FREESTANDING
 #define console_io_out std::cout
 #define console_io_in  std::cin
 

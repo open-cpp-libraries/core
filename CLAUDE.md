@@ -10,8 +10,8 @@ OCL.Core is a header-only C++ library providing core containers and utilities. I
 - Header-only library (all code in `include/ocl/`)
 - Requires C++20 or greater
 - Uses Boost extensively for cross-platform functionality
-- Supports freestanding mode via `__OCL_FREESTANDING` macro
-- All headers follow include guard pattern `__OCL_CORE_*`
+- Supports freestanding mode via `OCL_FREESTANDING` macro
+- All headers follow include guard pattern `OCL_CORE_*`
 
 ## Build System & Commands
 
@@ -130,14 +130,14 @@ Central configuration header that:
 
 The library tracks "freestanding status" - whether components work without standard library:
 - Currently **Half-Verified**: `option.hpp` and `is_same.hpp` (referenced but not in repo)
-- Define `__OCL_FREESTANDING` to disable Boost includes
+- Define `OCL_FREESTANDING` to disable Boost includes
 
 ## Development Guidelines
 
 ### Adding New Components
 
 1. Create header in `include/ocl/`
-2. Use include guard: `#ifndef __OCL_CORE_<NAME>`
+2. Use include guard: `#ifndef OCL_CORE_<NAME>`
 3. Include `ocl/detail/config.hpp` first
 4. Place implementation in `ocl` namespace
 5. Internal helpers go in `ocl::detail` namespace

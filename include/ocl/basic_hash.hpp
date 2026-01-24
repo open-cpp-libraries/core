@@ -3,8 +3,8 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
 
-#ifndef __OCL_CORE_BASIC_HASH
-#define __OCL_CORE_BASIC_HASH
+#ifndef OCL_CORE_BASIC_HASH
+#define OCL_CORE_BASIC_HASH
 
 #include <ocl/detail/config.hpp>
 

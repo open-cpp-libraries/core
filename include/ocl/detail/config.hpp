@@ -5,10 +5,10 @@
  * Copyright 2025, Amlal El Mahrouss, licensed under the Boost Software License.
  */
 
-#ifndef __OCL_CORE_CONFIG
-#define __OCL_CORE_CONFIG
+#ifndef OCL_CORE_CONFIG
+#define OCL_CORE_CONFIG
 
-#ifndef __OCL_FREESTANDING
+#ifndef OCL_FREESTANDING
 #include <boost/config.hpp>
 #include <boost/core/addressof.hpp>
 #include <boost/core/nvp.hpp>
