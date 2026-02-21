@@ -49,7 +49,6 @@ namespace ocl
 	/// \brief alias equiv_to to boolean type.
 	template <typename T>
 	using equiv_to_bool = equiv_to<bool, T>;
-	
 
 } // namespace ocl
 

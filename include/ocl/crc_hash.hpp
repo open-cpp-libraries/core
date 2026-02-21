@@ -62,7 +62,7 @@ namespace ocl
 			if (!len)
 				return 0UL;
 
-			Algorithm crc = 0xffffffff;
+			Algorithm	crc = 0xffffffff;
 			std::size_t cnt = 0;
 
 			while ((len--) > 0)

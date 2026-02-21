@@ -8,13 +8,13 @@
 
 #include <ocl/detail/config.hpp>
 
-namespace ocl {
+namespace ocl
+{
 
-  /// @brief Conforms to the IOAble container requirements.
-  template <class IOAble>
-  class transaction;
-  
+	/// @brief Conforms to the IOAble container requirements.
+	template <class IOAble>
+	class transaction;
 
-}
+} // namespace ocl
 
 #endif

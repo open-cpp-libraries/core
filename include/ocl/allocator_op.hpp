@@ -1,4 +1,4 @@
-// Copyright 2025, Amlal El Mahrouss (amlal@nekernel.org)
+// Copyright 2025-2026, Amlal El Mahrouss (amlal@nekernel.org)
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-org/core
@@ -8,6 +8,8 @@
 
 #include <ocl/detail/config.hpp>
 #include <memory>
+#include <mutex>
+#include <thread>
 
 namespace ocl
 {
@@ -20,6 +22,10 @@ namespace ocl
 		using const_pointer_type = const type*;
 		using pointer			 = type*;
 		using const_pointer		 = const type*;
+		using mutex_type		 = std::mutex;
+		using lock_type			 = std::scoped_lock<mutex_type>;
+
+		mutex_type m_;
 
 		auto alloc() -> pointer_type
 		{
@@ -69,13 +75,17 @@ namespace ocl
 		template <typename... var_type>
 		auto construct_var(var_type&&... args)
 		{
-			return std::shared_ptr<ret_type>(allocator_new{}.template var_alloc<var_type...>(std::forward<var_type...>(args)...), allocator_delete{});
+			allocator_new					  alloc;
+			typename allocator_new::lock_type lt{alloc.m_};
+			return std::shared_ptr<ret_type>(alloc.template var_alloc<var_type...>(std::forward<var_type...>(args)...), allocator_delete{});
 		}
 
 		template <std::size_t N>
 		auto construct_array()
 		{
-			return std::shared_ptr<ret_type>(allocator_new{}.template array_alloc<N>(), allocator_delete{});
+			allocator_new					  alloc;
+			typename allocator_new::lock_type lt{alloc.m_};
+			return std::shared_ptr<ret_type>(alloc.template array_alloc<N>(), allocator_delete{});
 		}
 	};
 
