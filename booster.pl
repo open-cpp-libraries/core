@@ -21,7 +21,7 @@ for my $path (@ARGV) {
     }
 }
 
-make_path("boostified/include/boost/core");
+make_path("boostified/include/boost/ocl/core");
 
 for my $file (@files) {
     process_file($file);
@@ -58,7 +58,7 @@ sub process_file {
 
     if ($content ne $original) {
         my $reldir = substr($srcdir, length($ARGV[0]) + 1);
-        my $outdir = "boostified/include/boost/ocl/$reldir";
+        my $outdir = "boostified/include/boost/ocl/core/$reldir";
         make_path($outdir) unless -d $outdir;
 
         open(my $out, '>', "$outdir/$name") or die "Cannot write $outdir/$name: $!\n";
