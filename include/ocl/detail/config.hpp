@@ -18,6 +18,7 @@
 #include <boost/assert/source_location.hpp>
 #include <boost/assert.hpp>
 #include <boost/utility/string_view.hpp>
+#include <boost/config.hpp>
 #endif
 
 #define OCL_DEPRECATED()		[[deprecated]]
