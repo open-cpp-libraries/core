@@ -12,4 +12,8 @@
 #include <boost/asio/write.hpp>
 #include <boost/asio/read.hpp>
 
+#ifdef OCL_CORE_INCLUDE_ALL_ASIO
+#include <boost/asio.hpp>
+#endif
+
 #endif
