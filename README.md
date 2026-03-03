@@ -2,18 +2,22 @@
 
 [![License: BSL](https://img.shields.io/badge/license-BSL-blue.svg)](LICENSE)
 
-Core set of containers from the OCL.
+The core set of containers from the OCL. These containers are used to develop modern C++ applications on top of Boost based ones.
+
+It's easy to clone and get up and running. Use CMake for this!
 
 ## Requirements:
 
-The OCL requires the following:
+The OCL requires:
 
 - [Boost](https://www.boost.org/)
 - [Clang](https://clang.llvm.org/)
 - [CMake](https://cmake.org/)
 - [Git](https://git-scm.com/)
 
-## Freestanding Status
+The OCL aims to be easily installable and to get up and running.
+
+## Freestanding Status:
 
 The Freestanding Status is a concept where a module is evaluated on whether it has or is fully freestanding or not.
 
