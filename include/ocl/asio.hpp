@@ -6,14 +6,18 @@
 #ifndef OCL_CORE_ASIO
 #define OCL_CORE_ASIO
 
+#ifdef OCL_CORE_INCLUDE_ALL_ASIO
+
+#include <boost/asio.hpp>
+
+#else
+
 #include <boost/asio/co_spawn.hpp>
 #include <boost/asio/detached.hpp>
 #include <boost/asio/io_context.hpp>
 #include <boost/asio/write.hpp>
 #include <boost/asio/read.hpp>
 
-#ifdef OCL_CORE_INCLUDE_ALL_ASIO
-#include <boost/asio.hpp>
 #endif
 
 #endif
