@@ -12,6 +12,7 @@
 
 #else
 
+#include <boost/asio/strand.hpp>
 #include <boost/asio/co_spawn.hpp>
 #include <boost/asio/detached.hpp>
 #include <boost/asio/io_context.hpp>
@@ -19,5 +20,25 @@
 #include <boost/asio/read.hpp>
 
 #endif
+
+namespace ocl::asio
+{
+	using io_context = boost::asio::io_context;
+    using run_pred_type = void(*)();
+
+	template <run_pred_type IOCPred>
+	inline void run_loop(io_context& ioc)
+	{
+		try
+		{
+			ioc.run();
+		}
+		catch (...)
+		{
+			IOCPred();
+		}
+	}
+
+} // namespace ocl
 
 #endif
