@@ -28,6 +28,6 @@ int main()
       co_return;
   }, boost::asio::detached);
 
-  ocl::asio::run_loop<[]() { std::terminate(); return; }>(ioc);
+  ocl::asio::run<[]() { std::terminate(); return; }>(ioc);
   return EXIT_SUCCESS;
 }
