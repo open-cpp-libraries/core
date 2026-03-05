@@ -12,4 +12,7 @@ add_executable(AsioExample example.cpp)
 
 set_property(TARGET AsioExample PROPERTY CXX_STANDARD 20)
 target_include_directories(AsioExample PUBLIC ../../include/)
-# target_link_libraries(AsioExample PRIVATE Boost Core Asio)
+
+if (NOT DEFINED LINUX)
+target_link_libraries(AsioExample PRIVATE Boost Core Asio)
+endif ()

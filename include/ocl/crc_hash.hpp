@@ -20,9 +20,9 @@ namespace ocl
 	/// @brief implements a trait object for crc hashing.
 	struct crc_hash_trait
 	{
-		static constexpr const std::uint16_t crc_sz_ = 256U;
+		static constexpr const uint16_t crc_sz_ = 256U;
 
-		static constexpr std::uint32_t crc_array_[crc_sz_] = {
+		static constexpr uint32_t crc_array_[crc_sz_] = {
 			0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419, 0x706af48f, 0xe963a535, 0x9e6495a3,
 			0x0edb8832, 0x79dcb8a4, 0xe0d5e91e, 0x97d2d988, 0x09b64c2b, 0x7eb17cbd, 0xe7b82d07, 0x90bf1d91,
 			0x1db71064, 0x6ab020f2, 0xf3b97148, 0x84be41de, 0x1adad47d, 0x6ddde4eb, 0xf4d4b551, 0x83d385c7,
@@ -74,11 +74,11 @@ namespace ocl
 			return ~crc;
 		}
 
-		template <std::uint8_t algorithm>
-		constexpr std::uint8_t crc(const char* in, std::size_t len) = delete;
+		template <uint8_t algorithm>
+		constexpr uint8_t crc(const char* in, std::size_t len) = delete;
 
-		template <std::uint64_t algorithm>
-		constexpr std::uint64_t crc(const char* in, std::size_t len) = delete;
+		template <uint64_t algorithm>
+		constexpr uint64_t crc(const char* in, std::size_t len) = delete;
 	};
 
 	template <typename V>
@@ -89,16 +89,16 @@ namespace ocl
 
 } // namespace ocl
 
-inline std::uint32_t
+inline uint32_t
 operator""_crc32(const char* in, std::size_t len) noexcept
 {
-	return ocl::crc_hash_trait::crc<std::uint32_t>(static_cast<const char*>(in), len);
+	return ocl::crc_hash_trait::crc<uint32_t>(static_cast<const char*>(in), len);
 }
 
-inline std::uint32_t
+inline uint32_t
 operator""_crc32(const wchar_t* in, std::size_t len) noexcept
 {
-	return ocl::crc_hash_trait::crc<std::uint32_t, wchar_t>(static_cast<const wchar_t*>(in), len);
+	return ocl::crc_hash_trait::crc<uint32_t, wchar_t>(static_cast<const wchar_t*>(in), len);
 }
 
 namespace std
@@ -110,21 +110,21 @@ namespace std
 		~hash() = default;
 
 		template <typename T>
-		inline std::size_t operator()(T* in_) const
+		inline size_t operator()(T* in_) const
 		{
-			return ocl::crc_hash_trait::crc<std::uint32_t>(reinterpret_cast<const char*>(in_), sizeof(T));
+			return ocl::crc_hash_trait::crc<uint32_t>(reinterpret_cast<const char*>(in_), sizeof(T));
 		}
 
 		template <bool is_mem = true>
-		inline std::size_t operator()(const char* in_) const
+		inline size_t operator()(const char* in_) const
 		{
-			return ocl::crc_hash_trait::crc<std::uint32_t>(in_, strlen(in_));
+			return ocl::crc_hash_trait::crc<uint32_t>(in_, strlen(in_));
 		}
 
 		template <bool is_me = true, bool string_overload = true>
-		inline std::size_t operator()(const std::string& in_) const
+		inline size_t operator()(const string& in_) const
 		{
-			return ocl::crc_hash_trait::crc<std::uint32_t>(in_.c_str(), in_.size());
+			return ocl::crc_hash_trait::crc<uint32_t>(in_.c_str(), in_.size());
 		}
 	};
 

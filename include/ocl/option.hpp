@@ -1,4 +1,4 @@
-// Copyright 2025, Amlal El Mahrouss (amlal@nekernel.org)
+// Copyright 2025-2026, Amlal El Mahrouss (amlal@nekernel.org)
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/ocl-foss-org/core
@@ -8,6 +8,7 @@
 
 #include <ocl/detail/config.hpp>
 #include <ocl/print.hpp>
+#include <cstdint>
 
 namespace ocl
 {
@@ -43,8 +44,8 @@ namespace ocl
 
 		~option() = default;
 
-		option& operator=(const option&) = delete;
-		option(const option&)			 = delete;
+		option& operator=(const option&) = default;
+		option(const option&)			 = default;
 
 		option& expect(const char* input)
 		{

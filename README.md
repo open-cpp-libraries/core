@@ -17,6 +17,25 @@ The OCL requires:
 
 The OCL aims to be easily installable and to get up and running.
 
+## Core by Examples:
+
+You can have a look at the examples in order to get familiar with the library.
+
+```cpp
+int main(int argc, char** argv)
+{
+	ocl::option opt{ocl::eval_eq(nullptr, nullptr)};
+	opt.expect("option::incorrect");
+
+	opt = ocl::option{ocl::eval_eq(argv, nullptr)};
+	opt.expect<invalid_callable>("option::incorrect");
+
+	return 0;
+}
+```
+
+This one implements an `ocl::option` container, which is used for error handling and other related tasks.
+
 ## Freestanding Status:
 
 The Freestanding Status is a concept where a module is evaluated on whether it has or is fully freestanding or not.
