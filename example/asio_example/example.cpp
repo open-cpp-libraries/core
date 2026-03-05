@@ -19,16 +19,19 @@ int main()
 	boost::asio::io_context ioc{1};
 	auto					spawn_strand = boost::asio::make_strand(ioc);
 
-  boost::asio::co_spawn(spawn_strand, [&]() -> boost::asio::awaitable<void> {
-      ocl::allocator<int> int_alloc;
+  ocl::allocator<int> int_alloc;
+
+  boost::asio::co_spawn(spawn_strand, [&int_alloc]() -> boost::asio::awaitable<void> {
       auto				balance = int_alloc.construct_array<1>();
 
       *balance = operator ""_USD(150);
-      ocl::io::println("USD: ", *balance);
+      ocl::io::println("Balance USD: ", *balance);
       co_return;
   }, boost::asio::detached);
 
-  ocl::asio::run<[]() { std::terminate(); }>(ioc);
+  auto balances = int_alloc.construct_array<5>();
+
+  ocl::asio::run<[]() { (void)0; }>(ioc);
 
   return EXIT_SUCCESS;
 }
