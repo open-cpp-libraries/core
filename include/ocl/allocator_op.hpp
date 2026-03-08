@@ -75,7 +75,7 @@ namespace ocl
 		template <typename... var_type>
 		auto construct_var(var_type&&... args)
 		{
-			allocator_new					  alloc;
+			static allocator_new					  alloc;
 			typename allocator_new::lock_type lt{alloc.m_};
 			return std::shared_ptr<ret_type>(alloc.template var_alloc<var_type...>(std::forward<var_type...>(args)...), allocator_delete{});
 		}
@@ -83,7 +83,7 @@ namespace ocl
 		template <std::size_t N>
 		auto construct_array()
 		{
-			allocator_new					  alloc;
+			static allocator_new			  alloc;
 			typename allocator_new::lock_type lt{alloc.m_};
 			return std::shared_ptr<ret_type>(alloc.template array_alloc<N>(), allocator_delete{});
 		}

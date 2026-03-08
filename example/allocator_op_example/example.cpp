@@ -5,15 +5,28 @@
 
 #include <ocl/print.hpp>
 #include <ocl/allocator_op.hpp>
+#include <coroutine>
+#include <future>
 
 /// \brief Allocation of ints example.
-int main()
+int task()
 {
 	ocl::allocator<int> int_alloc;
 	auto				foo = int_alloc.construct_array<1>();
 
-	*foo = 67;
-	ocl::io::print(*foo);
+	*foo = 109000;
+	ocl::io::println(*foo);
 
 	return EXIT_SUCCESS;
+}
+
+int main()
+{
+  auto ret = std::async(std::launch::deferred, task);
+  auto ret2 = std::async(std::launch::deferred, task);
+  auto ret3 = std::async(std::launch::deferred, task);
+  
+  ret.get();
+  ret2.get();
+  ret3.get();
 }
