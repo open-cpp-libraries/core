@@ -12,4 +12,9 @@ add_executable(AllocatorExample example.cpp)
 
 set_property(TARGET AllocatorExample PROPERTY CXX_STANDARD 20)
 target_include_directories(AllocatorExample PUBLIC ../../include/)
-target_link_libraries(AllocatorExample PRIVATE Boost)
+
+if (NOT DEFINED LINUX)
+	target_link_libraries(AllocatorExample PRIVATE Boost)
+endif()
+
+
