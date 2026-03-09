@@ -9,11 +9,6 @@
 #include <future>
 #include <boost/process.hpp>
 
-constexpr long int operator ""_USD(long double n)
-{
-  return n * 1000.0;
-}
-
 namespace asio = ::boost::asio;
 namespace process = ::boost::process;
 
