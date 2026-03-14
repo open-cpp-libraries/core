@@ -110,10 +110,10 @@ namespace std
 		hash()	= default;
 		~hash() = default;
 
-		template <typename T>
-		inline size_t operator()(T* in_) const
+		template <typename Type>
+		inline size_t operator()(Type* in_) const
 		{
-			return ocl::crc_hash_trait::crc<uint32_t>(reinterpret_cast<const char*>(in_), sizeof(T));
+			return ocl::crc_hash_trait::crc<uint32_t>(reinterpret_cast<const char*>(in_), sizeof(Type));
 		}
 
 		template <bool is_mem = true>

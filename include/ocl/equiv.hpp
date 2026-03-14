@@ -13,10 +13,10 @@
 namespace ocl
 {
 
-	template <typename T>
+	template <typename Type>
 	struct is_real final
 	{
-		using type					= T;
+		using type					= Type;
 		static constexpr auto value = false;
 	};
 
@@ -48,8 +48,8 @@ namespace ocl
 	};
 
 	/// \brief alias equiv_to to boolean type.
-	template <typename T>
-	using equiv_to_bool = equiv_to<bool, T>;
+	template <typename Type>
+	using equiv_to_bool = equiv_to<bool, Type>;
 
 } // namespace ocl
 

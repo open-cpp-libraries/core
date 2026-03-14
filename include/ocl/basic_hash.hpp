@@ -14,11 +14,11 @@ namespace ocl
 {
 
 	/// \brief Hash helper.
-	template <class T>
+	template <class Type>
 	struct basic_hash
 	{
-		using result_type = typename T::result_type;
-		using type		  = T;
+		using result_type = typename Type::result_type;
+		using type		  = Type;
 
 		// AMLALE: If it throws, we can't compute the hash correctly.
 		constexpr result_type hash() noexcept
