@@ -19,6 +19,7 @@
 #include <boost/asio/io_context.hpp>
 #include <boost/asio/write.hpp>
 #include <boost/asio/read.hpp>
+#include <ocl/print.hpp>
 
 #endif
 
@@ -28,16 +29,31 @@ namespace ocl::asio
 	using io_context_type = boost::asio::io_context;
 	using run_pred_type	  = void (*)();
 
-	template <run_pred_type IOCPred>
+	template <class IOCPred>
 	inline void run(io_context_type& ioc)
 	{
 		try
 		{
 			ioc.run();
 		}
-		catch (...)
+		catch (const std::exception& e)
 		{
-			IOCPred();
+			IOCPred{}();
+			ocl::io::println(e.what());
+		}
+	}
+
+	template <run_pred_type IOCFn>
+	inline void run(io_context_type& ioc)
+	{
+		try
+		{
+			ioc.run();
+		}
+		catch (const std::exception& e)
+		{
+			IOCFn();
+			ocl::io::println(e.what());
 		}
 	}
 

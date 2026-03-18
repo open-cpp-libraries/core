@@ -9,18 +9,18 @@
 #include <future>
 #include <boost/process.hpp>
 
-namespace asio = ::boost::asio;
+namespace asio	  = ::boost::asio;
 namespace process = ::boost::process;
 
 /// @brief Wrap OCL in ASIO calls.
 int main()
 {
-  asio::io_context ioc;
-  process::process proc(ioc, "/usr/bin/g++", {"--version"}, process::v2::process_stdio{{ /* in to default */}, {}, nullptr});
-  
-  proc.wait();
+	asio::io_context ioc;
+	process::process proc(ioc, "/usr/bin/g++", {"--version"}, process::v2::process_stdio{{/* in to default */}, {}, nullptr});
 
-  ocl::asio::run<[]() { (void)0; }>(ioc);
+	proc.wait();
 
-  return EXIT_SUCCESS;
+	ocl::asio::run<[]() { (void)0; }>(ioc);
+
+	return EXIT_SUCCESS;
 }

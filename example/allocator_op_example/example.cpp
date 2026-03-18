@@ -23,11 +23,11 @@ int task()
 
 int main()
 {
-  auto ret = std::async(std::launch::deferred, task);
-  auto ret2 = std::async(std::launch::deferred, task);
-  auto ret3 = std::async(std::launch::deferred, task);
-  
-  ret.get();
-  ret2.get();
-  ret3.get();
+	auto ret  = std::async(std::launch::deferred, task);
+	auto ret2 = std::async(std::launch::deferred, task);
+	auto ret3 = std::async(std::launch::deferred, task);
+
+	ret.get();
+	ret2.get();
+	ret3.get();
 }
