@@ -6,7 +6,6 @@
 #include <ocl/print.hpp>
 #include <ocl/asio.hpp>
 #include <ocl/allocator_op.hpp>
-#include <future>
 #include <boost/process.hpp>
 
 namespace asio	  = ::boost::asio;
