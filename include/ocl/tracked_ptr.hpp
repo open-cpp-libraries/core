@@ -7,7 +7,6 @@
 #ifndef OCL_TRACKED_PTR
 #define OCL_TRACKED_PTR
 
-#include "boost/assert/source_location.hpp"
 #include <ocl/detail/config.hpp>
 #include <atomic>
 #include <stdexcept>

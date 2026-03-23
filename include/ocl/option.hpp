@@ -9,7 +9,6 @@
 
 #include <ocl/detail/config.hpp>
 #include <ocl/print.hpp>
-#include <cstdint>
 
 namespace ocl
 {

@@ -54,7 +54,10 @@ namespace ocl
 
 		auto operator()(pointer_type t) -> void
 		{
+			if (t == nullptr)
+				return;
 			delete[] t;
+			t = nullptr;
 		}
 	};
 
