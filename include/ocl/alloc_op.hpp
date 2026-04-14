@@ -15,6 +15,27 @@
 namespace ocl
 {
 
+	namespace detail
+	{
+
+		/// @internal Bad allocation descriptor. Use it to grab references about an allocation error.
+		struct bad_alloc final
+		{
+			void* p;
+			boost::source_location l;
+		};
+
+		inline void throw_bad_alloc(void* p, const boost::source_location& loc = BOOST_CURRENT_LOCATION)
+		{
+			bad_alloc ba;
+			ba.p = p;
+			ba.l = loc;
+
+			throw ba;
+		}
+	
+	}
+
 	/// @note these are guidelines on allocating a resource
 	template <typename Type>
 	struct global_new_op final
@@ -25,24 +46,26 @@ namespace ocl
 		using const_pointer		 = const Type*;
 		using mutex_type		 = std::mutex;
 		using lock_type			 = std::scoped_lock<mutex_type>;
+		using type = Type;
 
 		mutex_type m_;
 
-		auto alloc() -> pointer_type
+		auto single_alloc() -> pointer_type
 		{
-			return new Type;
+			return new type{};
 		}
 
 		template <size_t N>
 		auto array_alloc() -> pointer_type
 		{
-			return new Type[N];
+			static_assert(N > 0, "N == 0, whereas N shall be greater than zero.");
+			return new type[N]{};
 		}
 
 		template <typename... VarType>
 		auto var_alloc(VarType&&... args) -> pointer_type
 		{
-			return new Type{std::forward<VarType>(args)...};
+			return new type{std::forward<VarType>(args)...};
 		}
 	};
 
@@ -51,12 +74,18 @@ namespace ocl
 	{
 		using pointer_type		 = Type*;
 		using const_pointer_type = const Type*;
+		
+		global_delete_op() = default;
+		~global_delete_op() = default;
 
-		auto operator()(pointer_type t) -> void
+		auto operator()(pointer_type t, const bool array_delete = false) -> void
 		{
 			if (t == nullptr)
 				return;
-			delete[] t;
+
+			if (array_delete) delete[] t;
+			else delete t;
+
 			t = nullptr;
 		}
 	};
