@@ -10,8 +10,8 @@
 #include <ocl/detail/config.hpp>
 
 #ifndef OCL_FREESTANDING
-#define console_io_out std::cout
-#define console_io_in  std::cin
+#define console_io_out ::std::cout
+#define console_io_in  ::std::cin
 
 #include <iostream>
 #else
