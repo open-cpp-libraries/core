@@ -65,7 +65,7 @@ namespace ocl::io
 	inline void lf() noexcept
 	{
 #ifdef OCL_USE_CRLF_ENDINGS
-		if (!is_stdio_sync)
+		if (!is_stdio_sync())
 			print("\r\n");
 #else
 		if (!is_stdio_sync())
