@@ -10,22 +10,26 @@
 #include <future>
 
 /// \brief Allocation of ints example.
-int task()
+struct task final
 {
-	ocl::allocator<int> int_alloc;
-	auto				foo = int_alloc.construct_array<1>();
+	int operator()()
+	{
+		ocl::allocator<int> int_alloc;
+		auto				foo = int_alloc.construct_array<1>();
 
-	*foo = 109000;
-	ocl::io::println(*foo);
+		*foo = 109000;
+		ocl::io::println(*foo);
 
-	return EXIT_SUCCESS;
-}
+		return EXIT_SUCCESS;
+	}
+};
 
-int main()
+int
+main()
 {
-	auto ret  = std::async(std::launch::deferred, task);
-	auto ret2 = std::async(std::launch::deferred, task);
-	auto ret3 = std::async(std::launch::deferred, task);
+	auto ret  = std::async(std::launch::deferred, task{});
+	auto ret2 = std::async(std::launch::deferred, task{});
+	auto ret3 = std::async(std::launch::deferred, task{});
 
 	ret.get();
 	ret2.get();
