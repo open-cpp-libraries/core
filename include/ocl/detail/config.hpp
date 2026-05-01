@@ -66,6 +66,29 @@ namespace ocl
 
 	} // namespace detail
 
+	namespace placeholders
+	{
+
+#define OCL_PLACEHOLDER_PREFIX "${"
+#define OCL_PLACEHOLDER_SUFFIX "}"
+
+		inline std::string find(const std::string& input,
+								const std::string& new_val,
+								const std::string& name)
+		{
+			if (input.find(OCL_PLACEHOLDER_PREFIX + name + OCL_PLACEHOLDER_SUFFIX) == std::string::npos)
+				return {};
+
+			std::string replacement = input;
+			replacement.replace(input.find(OCL_PLACEHOLDER_PREFIX + name + OCL_PLACEHOLDER_SUFFIX),
+								std::string(OCL_PLACEHOLDER_PREFIX + name + OCL_PLACEHOLDER_SUFFIX).size(),
+								new_val);
+
+			return replacement;
+		}
+
+	} // namespace placeholders
+
 } // namespace ocl
 
 #endif
