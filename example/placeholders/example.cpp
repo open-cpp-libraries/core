@@ -14,7 +14,7 @@ namespace process = ::boost::process;
 /// @brief Wrap OCL in ASIO calls.
 int main()
 {
-	auto path = ::ocl::placeholders::find("${compiler.name}.exe", "g++", "compiler.name");
+	auto path = ::ocl::placeholders::find_and_replace("${compiler.name}.exe", "g++", "compiler.name");
 
 	asio::io_context ioc;
 	process::process proc(ioc, path, {"--version"}, process::v2::process_stdio{{/* in to default */}, {}, nullptr});
