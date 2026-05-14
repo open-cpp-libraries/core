@@ -1,7 +1,7 @@
 # 
 #  File: Jamfile.v2
 #  Author: Amlal El Mahrouss,
-#  Copyright 2025, Amlal El Mahrouss, Licensed under the Boost Software License
+#  Copyright 2025-2026, Amlal El Mahrouss, licensed under the Boost Software License.
 # 
 
 project tests 
@@ -15,5 +15,4 @@ exe option.test.o
 exe allocator_op.test.o 
     : allocator_op.test.cpp 
     : <cxxstd>20 ;
-
 

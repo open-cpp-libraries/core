@@ -10,7 +10,6 @@
 #include <ocl/detail/config.hpp>
 #include <memory>
 #include <mutex>
-#include <thread>
 
 namespace ocl
 {
@@ -85,8 +84,6 @@ namespace ocl
 
 			if (array_delete) delete[] t;
 			else delete t;
-
-			t = nullptr;
 		}
 	};
 
@@ -105,20 +102,23 @@ namespace ocl
 		allocator_op& operator=(const allocator_op&) = delete;
 		allocator_op(const allocator_op&)			 = delete;
 
+        using size_type = std::size_t;
+        using type = RetType;
+
 		template <typename... VarType>
 		auto construct_var(VarType&&... args)
 		{
 			static AllocNew				 alloc;
 			typename AllocNew::lock_type lt{alloc.m_};
-			return std::shared_ptr<RetType>(alloc.template var_alloc<VarType...>(std::forward<VarType...>(args)...), AllocDelete{});
+			return std::shared_ptr<type>(alloc.template var_alloc<VarType...>(std::forward<VarType...>(args)...), AllocDelete{});
 		}
 
-		template <std::size_t N>
+		template <size_type N>
 		auto construct_array()
 		{
 			static AllocNew				 alloc;
 			typename AllocNew::lock_type lt{alloc.m_};
-			return std::shared_ptr<RetType>(alloc.template array_alloc<N>(), AllocDelete{});
+			return std::shared_ptr<type>(alloc.template array_alloc<N>(), AllocDelete{});
 		}
 	};
 
