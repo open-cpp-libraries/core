@@ -73,8 +73,8 @@ namespace ocl
 #define OCL_PLACEHOLDER_SUFFIX "}"
 
 		inline std::string find_and_replace(const std::string& input,
-								const std::string& new_val,
-								const std::string& name)
+											const std::string& new_val,
+											const std::string& name)
 		{
 			if (input.find(OCL_PLACEHOLDER_PREFIX + name + OCL_PLACEHOLDER_SUFFIX) == std::string::npos)
 				return {};

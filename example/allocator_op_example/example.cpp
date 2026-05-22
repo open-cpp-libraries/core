@@ -24,8 +24,7 @@ struct task final
 	}
 };
 
-int
-main()
+int main()
 {
 	auto ret  = std::async(std::launch::deferred, task{});
 	auto ret2 = std::async(std::launch::deferred, task{});

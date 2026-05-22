@@ -8,8 +8,7 @@
 #define OCL_CORE_ALLOCATOR_OP
 
 #include <ocl/detail/config.hpp>
-#include <memory>
-#include <mutex>
+#include <ocl/detail/alloc/config.hpp>
 
 namespace ocl
 {
@@ -20,11 +19,12 @@ namespace ocl
 		/// @internal Bad allocation descriptor. Use it to grab references about an allocation error.
 		struct bad_alloc final
 		{
-			void* p;
+			using pointer = void*;
+			pointer				   p;
 			boost::source_location l;
 		};
 
-		inline void throw_bad_alloc(void* p, const boost::source_location& loc = BOOST_CURRENT_LOCATION)
+		inline void throw_bad_alloc(bad_alloc::pointer p, const boost::source_location& loc = BOOST_CURRENT_LOCATION)
 		{
 			bad_alloc ba;
 			ba.p = p;
@@ -32,21 +32,23 @@ namespace ocl
 
 			throw ba;
 		}
-	
-	}
+
+	} // namespace detail
 
 	/// @note these are guidelines on allocating a resource
 	template <typename Type>
 	struct global_new_op final
 	{
+	public:
 		using pointer_type		 = Type*;
 		using const_pointer_type = const Type*;
 		using pointer			 = Type*;
 		using const_pointer		 = const Type*;
 		using mutex_type		 = std::mutex;
 		using lock_type			 = std::scoped_lock<mutex_type>;
-		using type = Type;
+		using type				 = Type;
 
+	public:
 		mutex_type m_;
 
 		auto single_alloc() -> pointer_type
@@ -73,8 +75,8 @@ namespace ocl
 	{
 		using pointer_type		 = Type*;
 		using const_pointer_type = const Type*;
-		
-		global_delete_op() = default;
+
+		global_delete_op()	= default;
 		~global_delete_op() = default;
 
 		auto operator()(pointer_type t, const bool array_delete = false) -> void
@@ -82,8 +84,10 @@ namespace ocl
 			if (t == nullptr)
 				return;
 
-			if (array_delete) delete[] t;
-			else delete t;
+			if (array_delete)
+				delete[] t;
+			else
+				delete t;
 		}
 	};
 
@@ -102,8 +106,8 @@ namespace ocl
 		allocator_op& operator=(const allocator_op&) = delete;
 		allocator_op(const allocator_op&)			 = delete;
 
-        using size_type = std::size_t;
-        using type = RetType;
+		using size_type = std::size_t;
+		using type		= RetType;
 
 		template <typename... VarType>
 		auto construct_var(VarType&&... args)

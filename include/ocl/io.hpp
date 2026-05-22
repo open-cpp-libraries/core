@@ -29,7 +29,7 @@ namespace ocl::io
 		~void_stream() = default;
 
 		void_stream& operator=(const void_stream&) = default;
-		void_stream(const void_stream&) = default;
+		void_stream(const void_stream&)			   = default;
 
 		void_stream& operator<<(...) = delete;
 		void_stream& operator>>(...) = delete;
