@@ -6,6 +6,5 @@
 
 #pragma once
 
-#include <boost/memory_order.hpp>
-#include <boost/smart_ptr.hpp>
-#include <boost/thread/mutex.hpp>
+#include <boost/math/quaternion.hpp>
+#include <boost/math/special_functions.hpp>

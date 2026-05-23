@@ -8,9 +8,9 @@
 ## Example:
 
 ```cpp
-   struct IORound {
+   struct IORound final {
     long operator>>(float); 
-    float operaotr<<(long);
+    float operator<<(long);
     long operator*(); // latest IO value (copy-constructable). 
    };
 ```
