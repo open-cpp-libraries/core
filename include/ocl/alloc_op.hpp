@@ -17,18 +17,18 @@ namespace ocl
 	{
 
 		/// @internal Bad allocation descriptor. Use it to grab references about an allocation error.
-		struct bad_alloc final
+		struct bad_alloc_traits final
 		{
 			using pointer = void*;
-			pointer				   p;
-			boost::source_location l;
+			pointer				   ptr_{};
+			boost::source_location loc_;
 		};
 
-		inline void throw_bad_alloc(bad_alloc::pointer p, const boost::source_location& loc = BOOST_CURRENT_LOCATION)
+		inline void throw_bad_alloc(bad_alloc_traits::pointer p, const boost::source_location& loc = BOOST_CURRENT_LOCATION)
 		{
-			bad_alloc ba;
-			ba.p = p;
-			ba.l = loc;
+			bad_alloc_traits ba;
+			ba.ptr_ = p;
+			ba.loc_ = loc;
 
 			throw ba;
 		}
