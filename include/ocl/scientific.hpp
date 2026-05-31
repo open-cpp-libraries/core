@@ -6,7 +6,4 @@
 
 #pragma once
 
-
-#include <boost/math/quaternion.hpp>
-#include <boost/math/special_functions.hpp>
-#include <boost/math/constants/constants.hpp>
+#include <ocl/detail/math/config.hpp>
