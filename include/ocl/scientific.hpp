@@ -15,7 +15,7 @@
 namespace ocl::scientific 
 {
 
-    inline auto zeta_apery_f = boost::math::zeta<float>(3);
-	inline auto zeta_apery_d = boost::math::zeta<double>(3);
+    inline auto zeta_apery_f = boost::math::zeta<float>(3.0f);
+	inline auto zeta_apery_d = boost::math::zeta<double>(3.0);
 
 } // namespace ocl::scientific
