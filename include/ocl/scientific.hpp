@@ -7,3 +7,12 @@
 #pragma once
 
 #include <ocl/detail/math/config.hpp>
+
+
+namespace ocl::scientific 
+{
+
+    inline auto zeta_apery_f = boost::math::zeta<float>(3);
+	inline auto zeta_apery_d = boost::math::zeta<double>(3);
+
+} // namespace ocl::scientific
