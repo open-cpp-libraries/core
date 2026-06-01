@@ -8,6 +8,9 @@
 
 #include <ocl/detail/math/config.hpp>
 
+#ifndef zeta_apery
+#define zeta_apery zeta_three
+#endif
 
 namespace ocl::scientific 
 {
