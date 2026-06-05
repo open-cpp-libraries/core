@@ -25,7 +25,7 @@ int main()
       auto				balance = int_alloc.construct_array<1>();
 
       *balance = operator ""_USD(150);
-      ocl::io::println("Balance USD: ", *balance);
+      ocl::io::println("Balance in USD: ", *balance);
       co_return; }, boost::asio::detached);
 
 	auto balances = int_alloc.construct_array<5>();
