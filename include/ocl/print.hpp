@@ -12,7 +12,6 @@
 
 #ifdef OCL_HAS_PRINT_LIBRARY
 #include <print>
-#warning !! OCL.Core: starting from C++23, please use <print> rather than print.hpp. !!
 #endif
 
 namespace ocl::io
