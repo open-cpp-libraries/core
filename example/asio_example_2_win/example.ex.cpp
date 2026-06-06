@@ -12,9 +12,9 @@ namespace asio	  = ::boost::asio;
 namespace process = ::boost::process;
 
 /// @brief Wrap OCL in ASIO calls.
-int main()
+int main(int argc, char** argv)
 {
-	asio::io_context ioc;
+	asio::io_context ioc{};
 	process::process proc(ioc, "g++", {"--version"}, process::v2::process_stdio{{/* in to default */}, {}, nullptr});
 
 	proc.wait();

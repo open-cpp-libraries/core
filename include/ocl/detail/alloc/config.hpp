@@ -9,3 +9,5 @@
 #include <boost/memory_order.hpp>
 #include <boost/smart_ptr.hpp>
 #include <boost/thread/mutex.hpp>
+
+#define OCL_ALLOC_MODULE

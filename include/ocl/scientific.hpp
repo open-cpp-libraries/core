@@ -14,6 +14,9 @@
 
 namespace ocl::scientific 
 {
+    
+    using quaternionf = boost::math::quaternion<float>;
+	using quaterniond = boost::math::quaternion<double>;
 
     inline auto zeta_apery_f = boost::math::zeta<float>(3.0f);
 	inline auto zeta_apery_d = boost::math::zeta<double>(3.0);
