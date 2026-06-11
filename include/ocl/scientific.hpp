@@ -31,7 +31,7 @@ namespace ocl::scientific
 	/// @param q The quaternion for which to compute the norm.
 	/// @return The norm of the quaternion in the specified space.
 	template <typename T, space_type S>
-	inline T norm(quaternion<T> const& q)
+	inline T norm(::boost::math::quaternion<T> const& q)
 	{
 		switch (S)
 		{
