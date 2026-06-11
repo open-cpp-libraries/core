@@ -59,9 +59,9 @@ namespace ocl
 	namespace detail
 	{
 
-		inline void throw_runtime_error(const boost::source_location& loc = BOOST_CURRENT_LOCATION)
+		inline void throw_runtime_error(::boost::source_location const& loc = BOOST_CURRENT_LOCATION)
 		{
-			throw std::runtime_error(loc.to_string());
+			::boost::throw_exception(std::runtime_error(""), loc);
 		}
 
 	} // namespace detail
