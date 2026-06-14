@@ -15,9 +15,10 @@
    };
 ```
 
-## Sources:
+## Properties:
+
+
+
+## References:
 
 - https://en.cppreference.com/w/cpp/named_req/CopyConstructible.html
-
-
-
