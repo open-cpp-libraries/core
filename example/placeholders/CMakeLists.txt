@@ -12,7 +12,7 @@ project(
 
 find_package(Boost REQUIRED)
 
-add_executable(Placeholders example.cpp)
+add_executable(Placeholders example.ex.cpp)
 
 set_property(TARGET Placeholders PROPERTY CXX_STANDARD 20)
 target_include_directories(Placeholders PUBLIC ../../include/)

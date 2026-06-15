@@ -8,7 +8,7 @@ project(
 
 find_package(Boost REQUIRED)
 
-add_executable(OptionExample example.cpp)
+add_executable(OptionExample example.ex.cpp)
 
 set_property(TARGET OptionExample PROPERTY CXX_STANDARD 20)
 target_include_directories(OptionExample PUBLIC ../../include/)

@@ -12,7 +12,7 @@ project(
 
 find_package(Boost REQUIRED)
 
-add_executable(AllocatorExample example.cpp)
+add_executable(AllocatorExample example.ex.cpp)
 
 set_property(TARGET AllocatorExample PROPERTY CXX_STANDARD 20)
 target_include_directories(AllocatorExample PUBLIC ../../include/)

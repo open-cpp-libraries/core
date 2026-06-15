@@ -8,7 +8,7 @@ project(
 
 find_package(Boost REQUIRED COMPONENTS container)
 
-add_executable(HashExample example.cpp)
+add_executable(HashExample example.ex.cpp)
 
 set_property(TARGET HashExample PROPERTY CXX_STANDARD 20)
 target_include_directories(HashExample PUBLIC ../../include/)

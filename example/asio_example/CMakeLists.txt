@@ -12,7 +12,7 @@ project(
 
 find_package(Boost REQUIRED)
 
-add_executable(AsioExample example.cpp)
+add_executable(AsioExample example.ex.cpp)
 
 set_property(TARGET AsioExample PROPERTY CXX_STANDARD 20)
 target_include_directories(AsioExample PUBLIC ../../include/)

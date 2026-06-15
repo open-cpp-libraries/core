@@ -8,7 +8,7 @@ project(
 
 find_package(Boost REQUIRED)
 
-add_executable(SmartPtrExample example.cpp)
+add_executable(SmartPtrExample example.ex.cpp)
 
 set_property(TARGET SmartPtrExample PROPERTY CXX_STANDARD 20)
 target_include_directories(SmartPtrExample PUBLIC ../../include/)
