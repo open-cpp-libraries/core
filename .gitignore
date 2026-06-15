@@ -16,6 +16,8 @@ boostified
 dist/*
 bin/
 
+.vscode
+
 docs/html
 docs/latex
 
