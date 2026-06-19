@@ -12,6 +12,8 @@
 #include <ocl/tracked_ptr.hpp>
 #include <memory>
 
+/// @brief Smart Pointr file for OCL support.
+
 namespace ocl
 {
 

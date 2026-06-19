@@ -9,7 +9,9 @@
 
 #include <ocl/detail/config.hpp>
 
-/// @brief OCL equivalence namespace.
+/// @brief OCL equivalence file for conditions.
+
+
 namespace ocl
 {
 

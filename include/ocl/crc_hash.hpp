@@ -12,6 +12,8 @@
 #include <concepts>
 #include <cstring>
 
+/// @brief OCL support of hashing.
+
 namespace ocl
 {
 

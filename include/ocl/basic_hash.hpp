@@ -9,7 +9,8 @@
 
 #include <ocl/detail/config.hpp>
 
-/// @brief OCL equivalence namespace.
+/// @brief OCL basic hash support.
+
 namespace ocl
 {
 

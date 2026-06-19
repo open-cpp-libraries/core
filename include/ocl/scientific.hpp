@@ -8,6 +8,8 @@
 
 #include <ocl/detail/math/config.hpp>
 
+/// @brief Scientific file for Number Theory, and Geometry.
+
 namespace ocl::scientific 
 {
     

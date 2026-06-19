@@ -10,6 +10,8 @@
 #include <ocl/detail/config.hpp>
 #include <ocl/detail/alloc/config.hpp>
 
+/// @brief Memory allocator for OCL support.
+
 namespace ocl
 {
 

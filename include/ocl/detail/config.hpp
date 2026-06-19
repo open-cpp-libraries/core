@@ -53,6 +53,8 @@
 #define OCL_HAS_PRAGMA_ONCE 1
 #endif
 
+#define OCL_CORE_MODULE (202606)
+
 namespace ocl
 {
 

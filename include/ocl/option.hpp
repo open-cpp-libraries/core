@@ -10,6 +10,8 @@
 #include <ocl/detail/config.hpp>
 #include <ocl/print.hpp>
 
+/// @brief Option monad file for OCL support.
+
 namespace ocl
 {
 
