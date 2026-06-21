@@ -23,8 +23,10 @@ namespace ocl::scientific
     /// @brief Enumeration to specify the type of space for quaternion norm computation.
     enum class space_type : int32_t
 	{
+		invalid = 1,
 		euclidean,
 		minkowski
+		count = 2,
 	};
 
     /// @brief Computes the norm of a quaternion in the specified space.
