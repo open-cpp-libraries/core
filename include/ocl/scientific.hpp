@@ -25,7 +25,7 @@ namespace ocl::scientific
 	{
 		invalid = 1,
 		euclidean,
-		minkowski
+		minkowski,
 		count = 2,
 	};
 
