@@ -18,7 +18,7 @@ struct invalid_callable
 };
 
 /// \brief Option Monad example
-int main(int argc, char** argv)
+auto main(int argc, char** argv) -> int
 {
 	ocl::option opt{ocl::eval_eq(nullptr, nullptr)};
 	opt.expect("option::incorrect");

@@ -12,7 +12,7 @@ namespace asio	  = ::boost::asio;
 namespace process = ::boost::process;
 
 /// @brief Wrap OCL in ASIO calls.
-int main()
+auto main(int argc, char** argv) -> int
 {
 	auto path = ::ocl::placeholders::find_and_replace("${compiler.name}.exe", "g++", "compiler.name");
 

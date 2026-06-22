@@ -14,7 +14,7 @@ constexpr long int operator""_USD(long double n)
 }
 
 /// @brief Wrap OCL in ASIO calls.
-int main(int argc, char** argv)
+auto main(int argc, char** argv) -> int
 {
 	boost::asio::io_context ioc{};
 	auto					spawn_strand = boost::asio::make_strand(ioc);
