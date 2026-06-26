@@ -8,7 +8,7 @@
 
 #include <ocl/detail/math/config.hpp>
 
-/// @brief Scientific file for Number Theory, and Geometry.
+/// @brief Scientific header for Pure and Computational Mathematics.
 
 namespace ocl::scientific 
 {
@@ -23,7 +23,7 @@ namespace ocl::scientific
     /// @brief Enumeration to specify the type of space for quaternion norm computation.
     enum class space_type : int32_t
 	{
-		invalid = 1,
+		invalid = -1,
 		euclidean,
 		minkowski,
 		count = 2,
