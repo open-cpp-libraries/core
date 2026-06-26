@@ -45,7 +45,7 @@ namespace ocl::scientific
 			return ::boost::math::norm(q);
 		}
 
-        ::boost::throw_exception(std::runtime_error("Invalid type"), BOOST_CURRENT_LOCATION);
+        ::boost::throw_exception(std::runtime_error("Invalid space type"), BOOST_CURRENT_LOCATION);
     }
 
 } // namespace ocl::scientific
