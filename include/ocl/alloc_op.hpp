@@ -70,6 +70,7 @@ namespace ocl
 		{
 			return new type{std::forward<VarType>(args)...};
 		}
+
 	};
 
 	template <typename Type>
@@ -91,6 +92,7 @@ namespace ocl
 			else
 				delete t;
 		}
+
 	};
 
 	/// \brief Backwards compat. alias of global_new_op.
@@ -126,6 +128,7 @@ namespace ocl
 			typename AllocNew::lock_type lt{alloc.m_};
 			return std::shared_ptr<type>(alloc.template array_alloc<N>(), AllocDelete{});
 		}
+		
 	};
 
 	template <typename Type>

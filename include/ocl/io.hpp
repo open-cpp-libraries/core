@@ -25,6 +25,7 @@ namespace ocl::io
 
 	class void_stream final
 	{
+	public:
 		void_stream()  = default;
 		~void_stream() = default;
 
@@ -33,6 +34,7 @@ namespace ocl::io
 
 		void_stream& operator<<(...) = delete;
 		void_stream& operator>>(...) = delete;
+		
 	}
 
 	inline void_stream void_cout;

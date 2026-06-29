@@ -37,6 +37,7 @@ namespace ocl
 	{
 	public:
 		option() = delete;
+		
 		explicit option(const return_type& return_type)
 			: ret_(return_type)
 		{

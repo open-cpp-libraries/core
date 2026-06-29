@@ -29,6 +29,7 @@ namespace ocl::asio
 {
 
 	using io_context_type = boost::asio::io_context;
+	
 	using run_pred_type	  = void (*)();
 
 	template <class IOCPred>

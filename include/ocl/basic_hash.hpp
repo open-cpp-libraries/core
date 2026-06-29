@@ -14,7 +14,7 @@
 namespace ocl
 {
 
-	/// \brief Hash helper.
+	/// \brief Hash helper structure.
 	template <class Type>
 	struct basic_hash
 	{
