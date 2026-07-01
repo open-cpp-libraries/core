@@ -28,17 +28,33 @@
 #define gelfond_schneider
 #define catalan
 
-namespace ocl::scientific 
+namespace ocl::scientific
 {
 
-    class ode_solver;
+    template <int functions_cnt, int variable_cnt>
+    class pde_solver;
+
+    template <int variable_cnt>
+    using ode_solver = pde_solver<1, variable_cnt>;
+
+    template <int variable_cnt>
     class nth_deriv_solver;
+
+    template <int variable_cnt>
     class nth_int_solver;
-    class alg_solver;
+
+    template <int variable_cnt>
+    class eq_solver;
+    
+    template <int variable_cnt>
+    class ineq_solver;
 
     struct natural_type;
+
     struct natural_plus_type;
+
     struct real_type;
-    struct properties;
+
+    struct seq;
 
 }
