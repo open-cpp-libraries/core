@@ -30,7 +30,7 @@ namespace ocl
 	template <class Type>
 	inline auto delete_ptr(Type* object) -> shared_ptr<Type>
 	{
-		return shared_ptr<Type>{object, boost::null_deleter{}};
+		return shared_ptr<Type>{object, ::boost::null_deleter{}};
 	}
 
 } // namespace ocl
