@@ -48,9 +48,9 @@ namespace ocl::scientific
 
 		using number_type = real_type;
 
-		bool operator()(number_type left, number_type right)
+		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			return false;
+			return 0;
 		}
 	};
 
@@ -66,9 +66,9 @@ namespace ocl::scientific
 
 		using number_type = real_type;
 
-		bool operator()(number_type left, number_type right)
+		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			return false;
+			return 0;
 		}
 	};
 
@@ -81,9 +81,9 @@ namespace ocl::scientific
 
 		using number_type = real_type;
 
-		bool operator()(number_type left, number_type right)
+		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			return false;
+			return 0;
 		}
 	};
 
@@ -96,16 +96,19 @@ namespace ocl::scientific
 		using number_type = real_type;
 
 		/// @brief basic equality solver for two parameters.
-		bool operator()(number_type left, number_type right)
+		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
 			number_type res = left;
 
-			if (res < 0)
-				res += right;
-			else
-				res -= right;
+            for (const auto& p : right)
+			{
+				if (res < 0)
+					res += p;
+				else
+					res -= p;
+			}
 
-			return res == 0;
+			return res;
 		}
     };
     
@@ -118,17 +121,48 @@ namespace ocl::scientific
         using number_type = real_type;
 
         /// @brief basic inequality solver for two parameters.
-        bool operator()(number_type left, number_type right...)
+		number_type operator()(const number_type& left, const std::vector<number_type>& right)
         {
 			number_type res = left;
+			bool		sign_pos = false;
 
-			if (res < 0)
-				res += right;
-			else
-                res -= right;
+			for (const auto& p : right)
+			{
+				if (res < 0)
+					res += p;
+				else
+					res -= p;
 
-			return res != right;
+                sign_pos = res > 0;
+			}
+
+			return res;
         }
     };
+
+    inline const real_type add(const real_type& left, const real_type& right)
+    {
+		return left + right;
+    }
+
+	inline const real_type sub(const real_type& left, const real_type& right)
+	{
+		return left + right;
+	}
+
+	inline const real_type mul(const real_type& left, const real_type& right)
+	{
+		return left * right;
+	}
+
+	inline const real_type div(const real_type& left, const real_type& right)
+	{
+		return left / right;
+	}
+
+	inline const real_type pow(const real_type& left, const real_type& right)
+	{
+		return std::pow(left, right);
+	}
 
 }

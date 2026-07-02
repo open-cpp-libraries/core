@@ -13,10 +13,17 @@
 auto main(int argc, char** argv) -> int
 {
 	ocl::scientific::eq_solver_two solver;
-	std::cout << solver(1, 2 + 2) << std::endl; // false
-	std::cout << solver(4, 2 + 2) << std::endl;					// true
-	std::cout << solver(1 + 1, 2) << std::endl;					// true
-	std::cout << solver(sqrt_two, (2 / sqrt_two)) << std::endl; // false, normally it is true, but the solver solves (2 / 2^(1/12)) first and then compares the result to 2^(1/12).
+
+	std::cout << solver(1, {ocl::scientific::add(2, 2)}) << std::endl; // false
+	std::cout << solver(4, {ocl::scientific::add(2, 2)}) << std::endl; // true
+	std::cout << solver(ocl::scientific::add(1, 1), {2}) << std::endl; // true
+
+	// false, normally it is true, but the solver solves (2 / 2^(1/12)) first and then compares the result to 2^(1/12).
+	std::cout << solver(sqrt_two, {ocl::scientific::div(2, sqrt_two)}) << std::endl;
+
+	ocl::scientific::ineq_solver_two solver_ineq;
+	std::cout << solver_ineq(ocl::scientific::div(2, sqrt_two), {ocl::scientific::div(2, sqrt_two)}) << std::endl;
+	std::cout << solver_ineq(5, {ocl::scientific::div(2, sqrt_two)}) << std::endl;
 
 	return EXIT_SUCCESS;
 }
