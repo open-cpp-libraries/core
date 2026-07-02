@@ -224,7 +224,7 @@ namespace ocl
 
 		inline void throw_tracked_error(const boost::source_location& loc = BOOST_CURRENT_LOCATION)
 		{
-			throw tracked_error(loc.to_string());
+			::boost::throw_exception(tracked_error(""), loc);
 		}
 	} // namespace detail
 

@@ -12,4 +12,3 @@ add_executable(SmartPtrExample example.ex.cpp)
 
 set_property(TARGET SmartPtrExample PROPERTY CXX_STANDARD 20)
 target_include_directories(SmartPtrExample PUBLIC ../../include/)
-target_link_libraries(SmartPtrExample PRIVATE Boost)

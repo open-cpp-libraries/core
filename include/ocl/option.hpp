@@ -29,7 +29,7 @@ namespace ocl
 
 		inline void throw_option_invalid_type_error(const boost::source_location& loc = BOOST_CURRENT_LOCATION)
 		{
-			throw option_error(loc.to_string());
+			::boost::throw_exception(option_error(""), loc);
 		}
 	} // namespace detail
 
