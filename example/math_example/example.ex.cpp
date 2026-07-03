@@ -22,6 +22,7 @@ auto main(int argc, char** argv) -> int
 	std::cout << solver(sqrt_two, {ocl::scientific::div(2, sqrt_two)}) << std::endl;
 
 	ocl::scientific::ineq_solver_two solver_ineq;
+	
 	std::cout << solver_ineq(ocl::scientific::div(2, sqrt_two), {ocl::scientific::div(2, sqrt_two)}) << std::endl;
 	std::cout << solver_ineq(5, {ocl::scientific::div(2, sqrt_two)}) << std::endl;
 
