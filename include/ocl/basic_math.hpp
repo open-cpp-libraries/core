@@ -21,7 +21,7 @@
 #define Im(x) std::complex(x)
 #define Re(x) (::ocl::scientific::real_type)x
 #define Q(x) (int32_t)x
-#define P(x)  (::ocl::scientific::real_type) x
+#define P(x)  (::ocl::scientific::real_type)x
 
 #define pi (3.14159265358979323846)
 #define euler_num (2.71828182845904523536)
