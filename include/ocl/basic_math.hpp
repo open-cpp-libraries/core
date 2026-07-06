@@ -147,7 +147,7 @@ namespace ocl::scientific
 
 	inline const real_type sub(const real_type& left, const real_type& right)
 	{
-		return left + right;
+		return left - right;
 	}
 
 	inline const real_type mul(const real_type& left, const real_type& right)
