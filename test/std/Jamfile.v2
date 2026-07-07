@@ -12,7 +12,10 @@ exe option.test.o
     : option.test.cpp 
     : <cxxstd>20 ;
 
-exe allocator_op.test.o 
-    : allocator_op.test.cpp 
+exe allocator.test.o 
+    : allocator.test.cpp 
     : <cxxstd>20 ;
 
+exe math.test.o 
+    : math.test.cpp 
+    : <cxxstd>20 ;

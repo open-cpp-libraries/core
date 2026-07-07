@@ -5,7 +5,7 @@
 // Official repository: https://github.com/open-cpp-libraries/core
 
 #include <ocl/print.hpp>
-#include <ocl/allocator_op.hpp>
+#include <ocl/allocator_fwd.hpp>
 #include <coroutine>
 #include <future>
 

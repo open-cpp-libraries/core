@@ -11,3 +11,18 @@
 #include <boost/math/constants/constants.hpp>
 
 #define OCL_MATH_MODULE (202606)
+
+namespace ocl
+{
+
+	namespace detail
+	{
+
+		inline void throw_math_error(::boost::source_location const& loc = BOOST_CURRENT_LOCATION)
+		{
+			::boost::throw_exception(std::runtime_error(""), loc);
+		}
+
+	} // namespace detail
+
+} // namespace ocl

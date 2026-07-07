@@ -7,7 +7,7 @@
 #include <ocl/crc_hash.hpp>
 #include <ocl/print.hpp>
 #include <ocl/smart_ptr.hpp>
-#include <ocl/basic_math.hpp>
+#include <ocl/math_fwd.hpp>
 
 /// \brief Smart pointer example.
 auto main(int argc, char** argv) -> int

@@ -4,8 +4,8 @@
 // Official repository: https://git.ocl.nekernel.org/core
 
 #include <ocl/print.hpp>
-#include <ocl/asio.hpp>
-#include <ocl/allocator_op.hpp>
+#include <ocl/asio_fwd.hpp>
+#include <ocl/allocator_fwd.hpp>
 #include <future>
 
 constexpr long int operator""_USD(long double n)

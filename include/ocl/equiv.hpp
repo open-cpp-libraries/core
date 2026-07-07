@@ -11,7 +11,6 @@
 
 /// @brief OCL equivalence file for conditions.
 
-
 namespace ocl
 {
 
