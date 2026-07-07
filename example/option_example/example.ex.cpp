@@ -8,7 +8,7 @@
 #include <ocl/print.hpp>
 #include <ocl/option.hpp>
 
-struct invalid_callable
+struct invalid_callable final
 {
 	explicit invalid_callable() = default;
 	void operator()(const char* reason)
