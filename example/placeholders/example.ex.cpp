@@ -16,12 +16,12 @@ auto main(int argc, char** argv) -> int
 {
 	auto path = ::ocl::placeholders::find_and_replace("${compiler.name}.exe", "g++", "compiler.name");
 
-	asio::io_context ioc;
-	process::process proc(ioc, path, {"--version"}, process::v2::process_stdio{{/* in to default */}, {}, nullptr});
+	::asio::io_context ioc;
+	::process::process proc(ioc, path, {"--version"}, process::v2::process_stdio{{/* in to default */}, {}, nullptr});
 
 	proc.wait();
 
-	ocl::asio::run<[]() { (void)0; }>(ioc);
+	::ocl::asio::run<[]() { (void)0; }>(ioc);
 
 	return EXIT_SUCCESS;
 }
