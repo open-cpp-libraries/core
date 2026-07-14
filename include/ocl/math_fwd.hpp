@@ -14,7 +14,6 @@
 #include <ocl/equiv.hpp>
 #include <ocl/option.hpp>
 #include <ocl/scientific_fwd.hpp>
-#include <complex>
 
 /// @todo To be defined in a final design
 
@@ -34,8 +33,6 @@
 
 namespace ocl::scientific
 {
-	
-	using real_type = double;
 
 	using variable_count_type = int;
 
@@ -140,30 +137,5 @@ namespace ocl::scientific
 			return res;
 		}
 	};
-
-	inline const real_type add(const real_type& left, const real_type& right)
-	{
-		return left + right;
-	}
-
-	inline const real_type sub(const real_type& left, const real_type& right)
-	{
-		return left - right;
-	}
-
-	inline const real_type mul(const real_type& left, const real_type& right)
-	{
-		return left * right;
-	}
-
-	inline const real_type div(const real_type& left, const real_type& right)
-	{
-		return left / right;
-	}
-
-	inline const real_type pow(const real_type& left, const real_type& right)
-	{
-		return std::pow(left, right);
-	}
 
 } // namespace ocl::scientific

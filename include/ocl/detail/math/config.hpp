@@ -12,7 +12,7 @@
 
 #define OCL_MATH_MODULE (202606)
 
-namespace ocl
+namespace ocl::scientific
 {
 
 	namespace detail
@@ -24,5 +24,33 @@ namespace ocl
 		}
 
 	} // namespace detail
+
+	
+	using real_type = double;
+
+	inline const real_type add(const real_type& left, const real_type& right)
+	{
+		return left + right;
+	}
+
+	inline const real_type sub(const real_type& left, const real_type& right)
+	{
+		return left - right;
+	}
+
+	inline const real_type mul(const real_type& left, const real_type& right)
+	{
+		return left * right;
+	}
+
+	inline const real_type div(const real_type& left, const real_type& right)
+	{
+		return left / right;
+	}
+
+	inline const real_type pow(const real_type& left, const real_type& right)
+	{
+		return std::pow(left, right);
+	}
 
 } // namespace ocl
