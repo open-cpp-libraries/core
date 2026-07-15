@@ -6,16 +6,19 @@
 
 /// @author Amlal El Mahrouss
 
-#include <ocl/math_fwd.hpp>
-
-#define BOOST_TEST_MODULE allocator_op
+#define BOOST_TEST_MODULE math
 #include <boost/test/included/unit_test.hpp>
+
+#include <ocl/math_fwd.hpp>
 
 BOOST_AUTO_TEST_CASE(math_should_solve_eq)
 {
 	ocl::scientific::eq_solver_two solver;
 
-	BOOST_TEST(solver(1, {ocl::scientific::add(2, 2)}) == 0);
-	BOOST_TEST(solver(4, {ocl::scientific::add(2, 2)}) != 0);
-	BOOST_TEST(solver(ocl::scientific::add(1, 1), {2}) == 0);
+    bool r1 = solver(1, {ocl::scientific::add(2, 2)}) == 0;
+	BOOST_TEST(r1 == false);
+    r1 = solver(4, {ocl::scientific::add(2, 2)}) != 0;
+	BOOST_TEST(r1 == false);
+    r1 = solver(ocl::scientific::add(1, 1), {2}) == 0;
+	BOOST_TEST(r1 == true);
 }
