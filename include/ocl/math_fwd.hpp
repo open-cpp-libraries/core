@@ -122,7 +122,6 @@ namespace ocl::scientific
 		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
 			number_type res		 = left;
-			bool		sign_pos = false;
 
 			for (const auto& p : right)
 			{
@@ -130,8 +129,6 @@ namespace ocl::scientific
 					res = add(res, p);
 				else
 					res = sub(res, p);
-
-				sign_pos = res > 0;
 			}
 
 			return res;
