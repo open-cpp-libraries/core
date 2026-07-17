@@ -22,7 +22,7 @@
 #define Q(x)  (int32_t)x
 #define P(x)  (::ocl::scientific::real_type) x
 
-/// @note The following are as you may have noticed, terribly inaccurate.
+/// @note The following are as you may have noticed, is terribly inaccurate.
 /// For any serious computation of PI, please refer to either: The Boost Math Library, or rolling your own summation of pi based on Ramanujan's work (if you have such time to spare)
 #define pi				  (3.14159265358979323846)
 #define euler_num		  (2.71828182845904523536)
