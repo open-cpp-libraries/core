@@ -20,6 +20,10 @@
 #include <boost/config.hpp>
 #endif
 
+#ifdef OCL_ANT_OS
+#include <compat/core/ant_os.hpp>
+#endif
+
 #define OCL_DEPRECATED()		[[deprecated]]
 #define OCL_DEPRECATED_MSG(MSG) [[deprecated(MSG)]]
 
