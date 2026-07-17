@@ -9,7 +9,7 @@
 #include <ocl/smart_ptr.hpp>
 #include <ocl/math_fwd.hpp>
 
-/// \brief Smart pointer example.
+/// \brief CAS solver example in modern C++. Operations to be implemented.
 auto main(int argc, char** argv) -> int
 {
 	ocl::scientific::eq_solver_two solver;
