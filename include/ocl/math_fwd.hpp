@@ -18,9 +18,9 @@
 /// @todo To be defined in a final design
 
 #define Im(x) std::complex(x)
-#define Re(x) (::ocl::scientific::real_type) x
-#define Q(x)  (int32_t)x
-#define P(x)  (::ocl::scientific::real_type) x
+#define Re(x) ((::ocl::scientific::real_type) x)
+#define Q(x)  ((std::int32_t) x)
+#define P(x)  ((::ocl::scientific::real_type) x)
 
 /// @note The following are as you may have noticed, is terribly inaccurate.
 /// For any serious computation of PI, please refer to either: The Boost Math Library, or rolling your own summation of pi based on Ramanujan's work (if you have such time to spare)
