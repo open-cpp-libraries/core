@@ -13,7 +13,7 @@
 
 /// @brief Tracked Smart Pointr file for OCL support.
 
-namespace ocl
+namespace ocl::smart_ptr
 {
 
 	template <typename Type>

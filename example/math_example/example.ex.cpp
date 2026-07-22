@@ -5,7 +5,7 @@
 // Official repository: https://github.com/open-cpp-libraries/core
 
 #include <ocl/crc_hash.hpp>
-#include <ocl/print.hpp>
+#include <ocl/print_fwd.hpp>
 #include <ocl/smart_ptr.hpp>
 #include <ocl/math_fwd.hpp>
 

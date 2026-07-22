@@ -4,7 +4,7 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 // Official repository: https://github.com/open-cpp-libraries/core
 
-#include <ocl/print.hpp>
+#include <ocl/print_fwd.hpp>
 #include <ocl/allocator_fwd.hpp>
 #include <coroutine>
 #include <future>

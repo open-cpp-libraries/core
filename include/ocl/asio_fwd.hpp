@@ -19,7 +19,7 @@
 #include <boost/asio/io_context.hpp>
 #include <boost/asio/write.hpp>
 #include <boost/asio/read.hpp>
-#include <ocl/print.hpp>
+#include <ocl/print_fwd.hpp>
 
 #endif
 

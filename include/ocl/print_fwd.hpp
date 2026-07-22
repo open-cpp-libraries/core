@@ -8,7 +8,7 @@
 #define OCL_CORE_PRINT
 
 #include <ocl/detail/config.hpp>
-#include <ocl/io.hpp>
+#include <ocl/io_fwd.hpp>
 
 #ifdef OCL_HAS_PRINT_LIBRARY
 #include <print>

@@ -12,9 +12,9 @@
 #include <ocl/tracked_ptr.hpp>
 #include <memory>
 
-/// @brief Smart Pointr file for OCL support.
+/// @brief Support for the smart pointer file for the OCL.
 
-namespace ocl
+namespace ocl::smart_ptr
 {
 
 	template <class Type, class Del = std::default_delete<Type>>

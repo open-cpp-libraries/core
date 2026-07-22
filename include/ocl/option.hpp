@@ -8,7 +8,7 @@
 #define OCL_CORE_OPTION
 
 #include <ocl/detail/config.hpp>
-#include <ocl/print.hpp>
+#include <ocl/print_fwd.hpp>
 
 /// @brief Option monad file for OCL support.
 
