@@ -8,9 +8,7 @@
 #define OCL_CORE_CRC_HASH
 
 #include <ocl/detail/config.hpp>
-#include <unordered_map>
-#include <concepts>
-#include <cstring>
+#include <ocl/detail/crc/config.hpp>
 
 /// @brief OCL support of hashing.
 

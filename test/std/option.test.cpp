@@ -7,7 +7,7 @@
 /// @brief Checks if the test fails with the expected value.
 /// @author Amlal El Mahrouss
 
-#include <ocl/option.hpp>
+#include <ocl/option_fwd.hpp>
 
 #define BOOST_TEST_MODULE option
 #include <boost/test/included/unit_test.hpp>

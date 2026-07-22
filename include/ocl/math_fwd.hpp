@@ -11,8 +11,8 @@
 #endif
 
 #include <ocl/detail/math/config.hpp>
-#include <ocl/equiv.hpp>
-#include <ocl/option.hpp>
+#include <ocl/equiv_fwd.hpp>
+#include <ocl/option_fwd.hpp>
 #include <ocl/scientific_fwd.hpp>
 
 /// @todo To be defined in a final design
