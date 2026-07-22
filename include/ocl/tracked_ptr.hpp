@@ -11,7 +11,7 @@
 #include <atomic>
 #include <stdexcept>
 
-/// @brief Tracked Smart Pointr file for OCL support.
+/// @brief Tracked smart pointer support file for the OCL.
 
 namespace ocl::smart_ptr
 {
