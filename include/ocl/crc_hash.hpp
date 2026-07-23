@@ -10,6 +10,10 @@
 #include <ocl/detail/config.hpp>
 #include <ocl/detail/crc/config.hpp>
 
+#include <unordered_map>
+#include <concepts>
+#include <cstring>
+
 /// @brief OCL support of hashing.
 
 namespace ocl
