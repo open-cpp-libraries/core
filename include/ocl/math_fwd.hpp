@@ -137,4 +137,10 @@ namespace ocl::scientific
 		}
 	};
 
+    /// @brief Provides a solver for induction, construction, and contradiction methods in mathematical proofs.
+
+    class induction_solver;
+    class construction_solver;
+    class contradiction_solver;
+
 } // namespace ocl::scientific

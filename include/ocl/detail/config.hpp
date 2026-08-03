@@ -59,6 +59,9 @@
 
 #define OCL_CORE_MODULE (202606)
 
+#define OCL_PLACEHOLDER_PREFIX "${"
+#define OCL_PLACEHOLDER_SUFFIX "}"
+
 namespace ocl
 {
 
@@ -74,9 +77,6 @@ namespace ocl
 
 	namespace placeholders
 	{
-
-#define OCL_PLACEHOLDER_PREFIX "${"
-#define OCL_PLACEHOLDER_SUFFIX "}"
 
 		inline std::string find_and_replace(const std::string& input,
 											const std::string& new_val,
