@@ -27,30 +27,44 @@ namespace ocl::remarks
 		llm_vendor_custom_start = 1000,
 	};
 
+    enum
+    {
+        llm_kind_unknown = 0,
+        llm_kind_video = 200,
+        llm_kind_text,
+        llm_kind_code,
+        llm_kind_agent,
+    };
+
 	/// @brief The remarks manifest structure, which stores LLM information about a file.
 	struct remarks_manifest_hdr
 	{
-		int64_t llm_magic_;
-		int64_t llm_version_;
+		int64_t llm_magic_{OCL_REMARKS_MAGIC};
+		int64_t llm_version_{OCL_REMARKS_VERSION};
 
-		int32_t llm_vendor_id_{};
-		int32_t llm_class_id_{};
-		int32_t llm_flags_{};
-		int32_t llm_kind_{};
+		int32_t llm_vendor_id_{llm_vendor_unknown};
+
+		int32_t llm_class_id_{0};
+		int32_t llm_flags_{0};
+		
+        int32_t llm_kind_{llm_kind_unknown};
 
 		bool llm_is_video_{}, llm_is_audio_{}, llm_is_image_{};
-		bool llm_is_text_{}, llm_is_binary_{};
+		
+        bool llm_is_text_{}, llm_is_binary_{};
 	};
 
+    /// @brief Is the manifest valid?
 	inline bool remarks_manifest_is_valid(const remarks_manifest_hdr& hdr)
 	{
 		return hdr.llm_magic_ == OCL_REMARKS_MAGIC && hdr.llm_version_ == OCL_REMARKS_VERSION;
 	}
 
-    template <int32_t T>
+    /// @brief Does the vendor id matches the vendor we expect?
+    template <int32_t V>
     inline bool remarks_manifest_is_llm_vendor(const remarks_manifest_hdr& hdr)
     {
-        return hdr.llm_vendor_id_ == T;
+        return hdr.llm_vendor_id_ == V;
     }
 
 } // namespace ocl::remarks

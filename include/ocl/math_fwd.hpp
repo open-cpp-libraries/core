@@ -18,12 +18,13 @@
 /// @todo To be defined in a final design
 
 #define Im(x) std::complex(x)
-#define Re(x) ((::ocl::scientific::real_type) x)
-#define Q(x)  ((std::int32_t) x)
-#define P(x)  ((::ocl::scientific::real_type) x)
+#define Re(x) ((::ocl::scientific::real_type)x)
+#define Q(x)  ((std::int32_t)x)
+#define P(x)  ((::ocl::scientific::real_type)x)
 
 /// @note The following are as you may have noticed, is terribly inaccurate.
-/// For any serious computation of PI, please refer to either: The Boost Math Library, or rolling your own summation of pi based on Ramanujan's work (if you have such time to spare)
+/// For any serious computation of PI, please refer to either: The Boost Math Library, 
+/// or rolling your own summation of pi based on Ramanujan's work (if you have such time to spare)
 #define pi				  (3.14159265358979323846)
 #define euler_num		  (2.71828182845904523536)
 #define euler_masch		  (0.57721566490153286060651209008240243104215933593992)
@@ -123,7 +124,7 @@ namespace ocl::scientific
 		/// @brief basic inequality solver for two parameters.
 		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			number_type res		 = left;
+			number_type res = left;
 
 			for (const auto& p : right)
 			{
@@ -137,10 +138,17 @@ namespace ocl::scientific
 		}
 	};
 
-    /// @brief Provides a solver for induction, construction, and contradiction methods in mathematical proofs.
+	namespace kernels
+	{
 
-    class induction_solver;
-    class construction_solver;
-    class contradiction_solver;
+	/// @brief Provides a sset of olvers for induction, construction, and contradiction methods in mathematical proofs.
+
+		class induction_solver;
+		class construction_solver;
+		class contradiction_solver;
+
+		class solver_kernel;
+
+	} // namespace kernels
 
 } // namespace ocl::scientific

@@ -10,6 +10,10 @@
 
 /// @brief Scientific header for Pure and Computational Mathematics.
 
+#ifndef zeta_apery
+#define zeta_apery zeta_three
+#endif
+
 namespace ocl::scientific
 {
 
@@ -49,7 +53,3 @@ namespace ocl::scientific
 	}
 
 } // namespace ocl::scientific
-
-#ifndef zeta_apery
-#define zeta_apery zeta_three
-#endif
