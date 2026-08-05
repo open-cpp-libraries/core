@@ -141,7 +141,8 @@ namespace ocl::scientific
 	namespace kernels
 	{
 
-	/// @brief Provides a sset of olvers for induction, construction, and contradiction methods in mathematical proofs.
+	    /// @brief Provides a sset of olvers for induction, construction, 
+        // and contradiction methods in mathematical proofs.
 
 		class induction_solver;
 		class construction_solver;
