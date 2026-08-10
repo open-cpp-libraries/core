@@ -37,7 +37,7 @@ namespace ocl::remarks
     };
 
 	/// @brief The remarks manifest structure, which stores LLM information about a file.
-	struct remarks_manifest_hdr
+	struct remarks_manifest_hdr final
 	{
 		int64_t llm_magic_{OCL_REMARKS_MAGIC};
 		int64_t llm_version_{OCL_REMARKS_VERSION};
