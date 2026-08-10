@@ -13,4 +13,4 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 install(DIRECTORY include/ DESTINATION include)
 
-message(STATUS "OCL.Core has been installed.")
+message(STATUS "The OCL.Core module has been installed.")
