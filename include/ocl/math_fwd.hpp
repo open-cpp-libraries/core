@@ -119,9 +119,9 @@ namespace ocl::scientific::solver
 	};
 
 	template <class Friend>
-	class kernel_solver
+	class kernel_solver_tag
 	{
-	protected:
+	public:
 		friend Friend;
 
 		using pointer = void*;
@@ -134,22 +134,22 @@ namespace ocl::scientific::solver
 	// and contradiction methods in mathematical proofs.
 
 	template <class Friend>
-	class induction_solver_tag : public kernel_solver<Friend>
+	class induction_solver_tag : public kernel_solver_tag<Friend>
 	{
 	};
 
 	template <class Friend>
-	class construction_solver_tag : public kernel_solver<Friend>
+	class construction_solver_tag : public kernel_solver_tag<Friend>
 	{
 	};
 
 	template <class Friend>
-	class contradiction_solver_tag : public kernel_solver<Friend>
+	class contradiction_solver_tag : public kernel_solver_tag<Friend>
 	{
 	};
 
 	/// @brief base kernel solver.
 	template <class Friend>
-	using solver_kernel = kernel_solver<Friend>;
+	using solver_kernel_tag = kernel_solver_tag<Friend>;
 
 } // namespace ocl::scientific::solver
