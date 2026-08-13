@@ -23,7 +23,7 @@
 #define P(x)  ((::ocl::scientific::real_type)x)
 
 /// @note The following are as you may have noticed, is terribly inaccurate.
-/// For any serious computation of PI, please refer to either: The Boost Math Library, 
+/// For any serious computation of PI, please refer to either: The Boost Math Library,
 /// or rolling your own summation of pi based on Ramanujan's work (if you have such time to spare)
 #define pi				  (3.14159265358979323846)
 #define euler_num		  (2.71828182845904523536)
@@ -34,7 +34,7 @@
 #define gelfond_schneider (std::pow(2, sqrt_two))
 #define catalan			  (0.9159655941772190150)
 
-namespace ocl::scientific
+namespace ocl::scientific::solver
 {
 
 	using variable_count_type = int;
@@ -51,7 +51,7 @@ namespace ocl::scientific
 
 		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			return 0;
+			return {};
 		}
 	};
 
@@ -69,7 +69,7 @@ namespace ocl::scientific
 
 		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			return 0;
+			return {};
 		}
 	};
 
@@ -84,7 +84,7 @@ namespace ocl::scientific
 
 		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			return 0;
+			return {};
 		}
 	};
 
@@ -99,17 +99,7 @@ namespace ocl::scientific
 		/// @brief basic equality solver for two parameters.
 		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			number_type res = left;
-
-			for (const auto& p : right)
-			{
-				if (res < 0)
-					res = add(res, p);
-				else
-					res = sub(res, p);
-			}
-
-			return res;
+			return {};
 		}
 	};
 
@@ -124,32 +114,42 @@ namespace ocl::scientific
 		/// @brief basic inequality solver for two parameters.
 		number_type operator()(const number_type& left, const std::vector<number_type>& right)
 		{
-			number_type res = left;
-
-			for (const auto& p : right)
-			{
-				if (res < 0)
-					res = add(res, p);
-				else
-					res = sub(res, p);
-			}
-
-			return res;
+			return {};
 		}
 	};
 
-	namespace kernels
+	template <class Friend>
+	class kernel_solver
 	{
+	protected:
+		friend Friend;
 
-	    /// @brief Provides a sset of olvers for induction, construction, 
-        // and contradiction methods in mathematical proofs.
+		using pointer = void*;
 
-		class induction_solver;
-		class construction_solver;
-		class contradiction_solver;
+		uint64_t id_{};
+		pointer	 self_{};
+	};
 
-		class solver_kernel;
+	/// @brief Provides a sset of olvers for induction, construction,
+	// and contradiction methods in mathematical proofs.
 
-	} // namespace kernels
+	template <class Friend>
+	class induction_solver_tag : public kernel_solver<Friend>
+	{
+	};
 
-} // namespace ocl::scientific
+	template <class Friend>
+	class construction_solver_tag : public kernel_solver<Friend>
+	{
+	};
+
+	template <class Friend>
+	class contradiction_solver_tag : public kernel_solver<Friend>
+	{
+	};
+
+	/// @brief base kernel solver.
+	template <class Friend>
+	using solver_kernel = kernel_solver<Friend>;
+
+} // namespace ocl::scientific::solver
