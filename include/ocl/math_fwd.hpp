@@ -118,16 +118,24 @@ namespace ocl::scientific::solver
 		}
 	};
 
+#ifndef sorry
+#define sorry true
+#endif
+
 	template <class Friend>
 	class kernel_solver_tag
 	{
 	public:
 		friend Friend;
 
-		using pointer = void*;
+		using pointer = Friend;
 
 		uint64_t id_{};
 		pointer	 self_{};
+
+        /// This guarantees that the solver is indeed solved.
+        static const bool is_formalized = false;
+
 	};
 
 	/// @brief Provides a sset of olvers for induction, construction,
@@ -148,8 +156,23 @@ namespace ocl::scientific::solver
 	{
 	};
 
+    /// @brief Solve a mathematical conjecture using a pre-solved solver first.
+	template <class Solver, class Friend>
+	class basic_chain_solver_tag : public kernel_solver_tag<Friend>
+	{
+    public:
+        static_assert(Solver::is_formalized, "The Solver you want to base this chain on is not solved. Use ::sorry to make this error go away.");
+
+        Solver pre_cond_;
+
+	};
+
 	/// @brief base kernel solver.
 	template <class Friend>
 	using solver_kernel_tag = kernel_solver_tag<Friend>;
+    
+    template <class Solver, class Friend>
+	using chain_solver_tag = basic_chain_solver_tag<Solver, Friend>;
+
 
 } // namespace ocl::scientific::solver
