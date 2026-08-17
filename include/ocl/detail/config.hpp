@@ -20,6 +20,14 @@
 #include <boost/config.hpp>
 #endif
 
+#ifndef __attribute_packed__
+#define __attribute_packed__ __attribute__((packed))
+#endif
+
+#ifndef __ocl_packed__
+#define __ocl_packed__ __attribute_packed__
+#endif
+
 #ifdef OCL_ANT_OS
 #include <compat/core/ant_os.hpp>
 #endif

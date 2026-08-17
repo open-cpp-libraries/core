@@ -12,14 +12,6 @@
 #define OCL_REMARKS_MAGIC	0x4C4D5245
 #define OCL_REMARKS_VERSION 0x00010000
 
-#ifndef __attribute_packed__
-#define __attribute_packed__ __attribute__((packed))
-#endif
-
-#ifndef __ocl_packed__
-#define __ocl_packed__ __attribute_packed__
-#endif
-
 namespace ocl::remarks
 {
 
