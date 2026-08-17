@@ -39,13 +39,13 @@ namespace ocl::remarks
 	/// @brief The remarks manifest structure, which stores LLM information about a file.
 	struct __ocl_packed__ remarks_manifest_hdr final
 	{
-		int64_t llm_magic_{OCL_REMARKS_MAGIC};
-		int64_t llm_version_{OCL_REMARKS_VERSION};
+		int64_t magic_{OCL_REMARKS_MAGIC};
+		int64_t version_{OCL_REMARKS_VERSION};
 
-		int32_t llm_vendor_id_{llm_vendor_unknown};
-		int32_t llm_class_id_{0};
-		int32_t llm_flags_{0};
-        int32_t llm_kind_{llm_kind_unknown};
+		int32_t vendor_id_{llm_vendor_unknown};
+		int32_t class_id_{0};
+		int32_t flags_{0};
+        int32_t kind_{llm_kind_unknown};
 	};
 
     /// @brief Is the manifest valid?
