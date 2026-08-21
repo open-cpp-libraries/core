@@ -33,7 +33,6 @@
 #include <ocl/compat/core/win_nt.hpp>
 #include <ocl/compat/core/posix.hpp>
 
-
 #define OCL_DEPRECATED()		[[deprecated]]
 #define OCL_DEPRECATED_MSG(MSG) [[deprecated(MSG)]]
 
