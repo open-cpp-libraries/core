@@ -28,9 +28,11 @@
 #define __ocl_packed__ __attribute_packed__
 #endif
 
-#ifdef OCL_ANT_OS
-#include <compat/core/ant_os.hpp>
-#endif
+#include <ocl/compat/core/ant_os.hpp>
+#include <ocl/compat/core/ne_system.hpp>
+#include <ocl/compat/core/win_nt.hpp>
+#include <ocl/compat/core/posix.hpp>
+
 
 #define OCL_DEPRECATED()		[[deprecated]]
 #define OCL_DEPRECATED_MSG(MSG) [[deprecated(MSG)]]
