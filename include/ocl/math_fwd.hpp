@@ -45,7 +45,6 @@ namespace ocl::scientific::solver
 	{
 	public:
 		pde_solver()  = default;
-		~pde_solver() = default;
 
 		using number_type = real_type;
 
@@ -63,7 +62,6 @@ namespace ocl::scientific::solver
 	{
 	public:
 		nth_deriv_solver()	= default;
-		~nth_deriv_solver() = default;
 
 		using number_type = real_type;
 
@@ -78,7 +76,6 @@ namespace ocl::scientific::solver
 	{
 	public:
 		nth_int_solver()  = default;
-		~nth_int_solver() = default;
 
 		using number_type = real_type;
 
@@ -92,7 +89,6 @@ namespace ocl::scientific::solver
 	{
 	public:
 		eq_solver_two()	 = default;
-		~eq_solver_two() = default;
 
 		using number_type = real_type;
 
@@ -107,7 +103,6 @@ namespace ocl::scientific::solver
 	{
 	public:
 		ineq_solver_two()  = default;
-		~ineq_solver_two() = default;
 
 		using number_type = real_type;
 
@@ -138,7 +133,7 @@ namespace ocl::scientific::solver
 
 	};
 
-	/// @brief Provides a sset of olvers for induction, construction,
+	/// @brief Provides a set of solvers for induction, construction,
 	// and contradiction methods in mathematical proofs.
 
 	template <class Friend>
