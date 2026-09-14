@@ -1,4 +1,4 @@
-# OCL.Core
+# OCL.Core Module
 
 [![License: BSL](https://img.shields.io/badge/license-BSL-blue.svg)](LICENSE)
 
@@ -6,7 +6,7 @@ The core set of containers from the OCL. These containers are used to develop mo
 
 It's easy to clone and get up and running. Use CMake for this!
 
-## Requirements:
+## Requirements
 
 The OCL requires:
 
@@ -17,7 +17,7 @@ The OCL requires:
 
 The OCL aims to be easily installable and to get up and running.
 
-## Core by Examples:
+## Usage
 
 You can have a look at the examples in order to get familiar with the library.
 
@@ -36,10 +36,10 @@ int main(int argc, char** argv)
 
 This one implements an `ocl::option` container, which is used for error handling and other related tasks.
 
-## Freestanding Status:
+## Freestanding Status
 
 The Freestanding Status is a concept where a module is evaluated on whether it has or is fully freestanding or not.
 
 - Half-Verified ({option, is_same}.hpp)
 
-##### (c) 2023-2026 Amlal El Mahrouss and OCL Authors, licensed under the Boost Software License.
+##### (c) 2023-2026 Amlal El Mahrouss, Ne.app and OCL Authors, licensed under the Boost Software License.
