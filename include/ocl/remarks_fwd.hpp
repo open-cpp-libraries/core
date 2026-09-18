@@ -27,14 +27,14 @@ namespace ocl::remarks
 		llm_vendor_custom_start = 1000,
 	};
 
-    enum
-    {
-        llm_kind_unknown = 0,
-        llm_kind_video = 200,
-        llm_kind_text,
-        llm_kind_code,
-        llm_kind_agent,
-    };
+	enum
+	{
+		llm_kind_unknown = 0,
+		llm_kind_video	 = 200,
+		llm_kind_text,
+		llm_kind_code,
+		llm_kind_agent,
+	};
 
 	/// @brief The remarks manifest structure, which stores LLM information about a file.
 	struct __ocl_packed__ remarks_manifest_hdr final
@@ -45,21 +45,21 @@ namespace ocl::remarks
 		int32_t vendor_id_{llm_vendor_unknown};
 		int32_t class_id_{0};
 		int32_t flags_{0};
-        int32_t kind_{llm_kind_unknown};
+		int32_t kind_{llm_kind_unknown};
 	};
 
-    /// @brief Is the manifest valid?
+	/// @brief Is the manifest valid?
 	inline bool remarks_manifest_is_valid(const remarks_manifest_hdr& hdr)
 	{
 		return hdr.magic_ == OCL_REMARKS_MAGIC && hdr.version_ == OCL_REMARKS_VERSION;
 	}
 
-    /// @brief Does the vendor id matches the vendor we expect?
-    template <int32_t V>
-    inline bool remarks_manifest_is_llm_vendor(const remarks_manifest_hdr& hdr)
-    {
-        return hdr.vendor_id_ == V;
-    }
+	/// @brief Does the vendor id matches the vendor we expect?
+	template <int32_t V>
+	inline bool remarks_manifest_is_llm_vendor(const remarks_manifest_hdr& hdr)
+	{
+		return hdr.vendor_id_ == V;
+	}
 
 } // namespace ocl::remarks
 

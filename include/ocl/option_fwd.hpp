@@ -20,7 +20,8 @@ namespace ocl
 		invalid = 0,
 		okay	= 100,
 		err,
-		count = err - okay + 1,
+		unknown,
+		count = unknown - okay + 1,
 	};
 
 	namespace detail
@@ -37,7 +38,7 @@ namespace ocl
 	{
 	public:
 		basic_option() = delete;
-		
+
 		explicit basic_option(const return_type& return_type)
 			: ret_(return_type)
 		{
@@ -153,7 +154,7 @@ namespace ocl
 		return return_type::invalid;
 	}
 
-    using option = basic_option;
+	using option = basic_option;
 
 } // namespace ocl
 

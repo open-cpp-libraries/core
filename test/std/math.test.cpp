@@ -42,7 +42,8 @@ struct simple_solver : public ocl::scientific::solver::kernel_solver_tag<ocl::sc
 
 BOOST_AUTO_TEST_CASE(math_solver_example_simple)
 {
-	ocl::scientific::solver::chain_solver_tag<simple_solver, 
-		ocl::scientific::solver::construction_solver_tag<ocl::scientific::solver::eq_solver_two>> proof;
+	ocl::scientific::solver::chain_solver_tag<simple_solver,
+											  ocl::scientific::solver::construction_solver_tag<ocl::scientific::solver::eq_solver_two>>
+		proof;
 	BOOST_TEST(proof.pre_cond_(1, 1) == 0);
 }

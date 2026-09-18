@@ -27,7 +27,7 @@ namespace ocl::io
 
 	inline void print() noexcept
 	{
-        /// AMLALE: lf stands for line-feed.
+		/// AMLALE: lf stands for line-feed.
 		extern void lf() noexcept;
 		lf();
 	}
@@ -58,14 +58,14 @@ namespace ocl::io
 		}
 	} // namespace detail
 
-    /// @brief Enables or disables synchronization between C++ standard streams and C standard streams.
+	/// @brief Enables or disables synchronization between C++ standard streams and C standard streams.
 	inline void enable_stdio_sync(const bool& enable) noexcept
 	{
 		detail::is_stdio_sync = enable;
 		console_io_out.sync_with_stdio(detail::is_stdio_sync);
 	}
 
-    /// @brief Checks if standard I/O synchronization is enabled.
+	/// @brief Checks if standard I/O synchronization is enabled.
 	inline const bool& is_stdio_sync()
 	{
 		return detail::is_stdio_sync;

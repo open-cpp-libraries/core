@@ -238,6 +238,6 @@ namespace ocl::smart_ptr
 		}
 	}
 
-} // namespace ocl
+} // namespace ocl::smart_ptr
 
 #endif // ifndef OCL_TRACKED_PTR

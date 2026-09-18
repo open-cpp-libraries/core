@@ -33,6 +33,6 @@ namespace ocl::smart_ptr
 		return shared_ptr<Type>{object, ::boost::null_deleter{}};
 	}
 
-} // namespace ocl
+} // namespace ocl::smart_ptr
 
 #endif // ifndef OCL_SMART_PTR

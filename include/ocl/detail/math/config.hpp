@@ -58,4 +58,4 @@ namespace ocl::scientific
 		return std::sqrt(left);
 	}
 
-} // namespace ocl
+} // namespace ocl::scientific

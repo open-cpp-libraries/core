@@ -44,7 +44,7 @@ namespace ocl::scientific::solver
 	class pde_solver
 	{
 	public:
-		pde_solver()  = default;
+		pde_solver() = default;
 
 		using number_type = real_type;
 
@@ -61,7 +61,7 @@ namespace ocl::scientific::solver
 	class nth_deriv_solver
 	{
 	public:
-		nth_deriv_solver()	= default;
+		nth_deriv_solver() = default;
 
 		using number_type = real_type;
 
@@ -75,7 +75,7 @@ namespace ocl::scientific::solver
 	class nth_int_solver
 	{
 	public:
-		nth_int_solver()  = default;
+		nth_int_solver() = default;
 
 		using number_type = real_type;
 
@@ -88,7 +88,7 @@ namespace ocl::scientific::solver
 	class eq_solver_two
 	{
 	public:
-		eq_solver_two()	 = default;
+		eq_solver_two() = default;
 
 		using number_type = real_type;
 
@@ -102,7 +102,7 @@ namespace ocl::scientific::solver
 	class ineq_solver_two
 	{
 	public:
-		ineq_solver_two()  = default;
+		ineq_solver_two() = default;
 
 		using number_type = real_type;
 
@@ -128,9 +128,8 @@ namespace ocl::scientific::solver
 		uint64_t id_{};
 		pointer	 self_{};
 
-        /// This guarantees that the solver is indeed solved.
-        static const bool is_formalized = false;
-
+		/// This guarantees that the solver is indeed solved.
+		static const bool is_formalized = false;
 	};
 
 	/// @brief Provides a set of solvers for induction, construction,
@@ -151,23 +150,21 @@ namespace ocl::scientific::solver
 	{
 	};
 
-    /// @brief Solve a mathematical conjecture using a pre-solved solver first.
+	/// @brief Solve a mathematical conjecture using a pre-solved solver first.
 	template <class Solver, class Friend>
 	class basic_chain_solver_tag : public kernel_solver_tag<Friend>
 	{
-    public:
-        static_assert(Solver::is_formalized, "The Solver you want to base this chain on is not solved. Use ::sorry to make this error go away.");
+	public:
+		static_assert(Solver::is_formalized, "The Solver you want to base this chain on is not solved. Use ::sorry to make this error go away.");
 
-        Solver pre_cond_;
-
+		Solver pre_cond_;
 	};
 
 	/// @brief base kernel solver.
 	template <class Friend>
 	using solver_kernel_tag = kernel_solver_tag<Friend>;
-    
-    template <class Solver, class Friend>
-	using chain_solver_tag = basic_chain_solver_tag<Solver, Friend>;
 
+	template <class Solver, class Friend>
+	using chain_solver_tag = basic_chain_solver_tag<Solver, Friend>;
 
 } // namespace ocl::scientific::solver

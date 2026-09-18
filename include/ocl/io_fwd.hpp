@@ -34,7 +34,7 @@ namespace ocl::io
 
 		void_stream& operator<<(...) = delete;
 		void_stream& operator>>(...) = delete;
-		
+
 	}
 
 	inline void_stream void_cout;
