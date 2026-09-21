@@ -220,6 +220,7 @@ namespace ocl::smart_ptr
 
 	namespace detail
 	{
+        /// We have our own error alias if we wish to expand it, or just disable it in the future. (AMLALE)
 		using tracked_error = std::runtime_error;
 
 		inline void throw_tracked_error(const boost::source_location& loc = BOOST_CURRENT_LOCATION)
