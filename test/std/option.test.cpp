@@ -23,3 +23,50 @@ BOOST_AUTO_TEST_CASE(option_should_succeed)
 	ocl::option opt(ocl::eval_true());
 	BOOST_CHECK_NO_THROW(opt.expect(""));
 }
+
+BOOST_AUTO_TEST_CASE(option_invalid_throws_on_construct)
+{
+	BOOST_CHECK_THROW(ocl::option(ocl::eval_invalid()), std::exception);
+}
+
+BOOST_AUTO_TEST_CASE(option_eval_eq_success)
+{
+	ocl::option opt(ocl::eval_eq(42, 42));
+	BOOST_CHECK_NO_THROW(opt.expect(""));
+}
+
+BOOST_AUTO_TEST_CASE(option_eval_eq_fail)
+{
+	ocl::option opt(ocl::eval_eq(1, 2));
+	BOOST_CHECK_THROW(opt.expect(""), std::exception);
+}
+
+BOOST_AUTO_TEST_CASE(option_eval_less_than_success)
+{
+	ocl::option opt(ocl::eval_less_than(1, 2));
+	BOOST_CHECK_NO_THROW(opt.expect(""));
+}
+
+BOOST_AUTO_TEST_CASE(option_eval_less_than_fail)
+{
+	ocl::option opt(ocl::eval_less_than(2, 1));
+	BOOST_CHECK_THROW(opt.expect(""), std::exception);
+}
+
+BOOST_AUTO_TEST_CASE(option_eval_greater_than_success)
+{
+	ocl::option opt(ocl::eval_greater_than(5, 3));
+	BOOST_CHECK_NO_THROW(opt.expect(""));
+}
+
+BOOST_AUTO_TEST_CASE(option_eval_greater_than_fail)
+{
+	ocl::option opt(ocl::eval_greater_than(1, 9));
+	BOOST_CHECK_THROW(opt.expect(""), std::exception);
+}
+
+BOOST_AUTO_TEST_CASE(option_expect_chaining)
+{
+	ocl::option opt(ocl::eval_true());
+	BOOST_CHECK_NO_THROW(opt.expect("").expect(""));
+}
