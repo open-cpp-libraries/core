@@ -8,6 +8,7 @@
 #define OCL_CORE_CONFIG
 
 #ifndef OCL_FREESTANDING
+#include <ocl/tproc.hpp>
 #include <boost/config.hpp>
 #include <boost/core/addressof.hpp>
 #include <boost/core/nvp.hpp>
@@ -101,6 +102,41 @@ namespace ocl
 
 			return replacement;
 		}
+
+#ifdef OCL_USE_TPROC
+		/// @note This variant is noexcept, the right crope is expected to be freed by the user.
+		inline bool find_and_replace(const std::string& base,
+									 tproc::crope*		new_val,
+									 const std::string& fmt) noexcept
+		{
+			if (!new_val)
+				return std::false_type::value;
+
+			tproc::crope* right				= new tproc::crope(base);
+			tproc::crope* right_after_right = new tproc::crope(fmt);
+
+			if (!right_after_right)
+			{
+				if (right) delete right;
+				return std::false_type::value;
+			}
+
+			if (!right)
+			{
+				if (right_after_right)
+					delete right_after_right;
+
+				delete right;
+
+				return std::false_type::value;
+			}
+
+			new_val->concat(right);
+			right->concat(right_after_right);
+
+			return std::true_type::value;
+		}
+#endif
 
 	} // namespace placeholders
 
