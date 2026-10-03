@@ -29,10 +29,10 @@ auto main(int argc, char** argv) -> int
 	::ocl::asio::run<[]() { (void)0; }>(ioc);
 
 	if ((out_path->operator++(2))->starts_with(boost::core::string_view("x86_64")))
-		std::cout << "prefix\n";
+		std::cout << "x86_64\n";
 
 	if ((out_path->operator++(2))->ends_with(boost::core::string_view("g++")))
-		std::cout << "suffix\n";
+		std::cout << "g++\n";
 
 	return EXIT_SUCCESS;
 }

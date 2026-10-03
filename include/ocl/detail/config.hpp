@@ -9,6 +9,7 @@
 
 #ifndef OCL_FREESTANDING
 #include <ocl/tproc.hpp>
+
 #include <boost/config.hpp>
 #include <boost/core/addressof.hpp>
 #include <boost/core/nvp.hpp>
@@ -21,23 +22,40 @@
 #include <boost/config.hpp>
 #endif
 
+#ifndef OCL_FOR_EACH
+#define OCL_FOR_EACH ::std::for_each
+#endif // OCL_FOR_EACH
+
+#ifndef OCL_REMOVE_IF
+#define OCL_REMOVE_IF ::std::remove_if
+#endif // OCL_REMOVE_IF
+
 #ifndef __attribute_packed__
 #define __attribute_packed__ __attribute__((packed))
-#endif
+#endif // __attribute_packed__
 
 #ifndef __ocl_packed__
 #define __ocl_packed__ __attribute_packed__
-#endif
+#endif // __ocl_packed__
 
 #include <ocl/compat/core/ant_os.hpp>
 #include <ocl/compat/core/ne_system.hpp>
 #include <ocl/compat/core/win_nt.hpp>
 #include <ocl/compat/core/posix.hpp>
 
+#ifndef OCL_DEPRECATED
 #define OCL_DEPRECATED()		[[deprecated]]
-#define OCL_DEPRECATED_MSG(MSG) [[deprecated(MSG)]]
+#endif
 
-#if 202002L > __cplusplus
+#ifndef OCL_DEPRECATED_MSG
+#define OCL_DEPRECATED_MSG(MSG) [[deprecated(MSG)]]
+#endif
+
+#ifndef OCL_CPP20
+#define OCL_CPP20 202002L
+#endif
+
+#if OCL_CPP20 > __cplusplus
 #error !! OCL.Core works with C++20 and greater !!
 #endif
 
